@@ -1,136 +1,268 @@
 # タロット 大アルカナ22枚 メタデータ
-# 小アルカナ56枚は M3以降で必要に応じて追加。M1〜M2は大アルカナのみで十分回せる
+#
+# 動画素材として使うオリジナル22枚カードは assets/tarot_deck/major/ に配置。
+# ファイル命名は {id_2桁}_{en_snake_case}.png (例: 18_moon.png)。
+# 詳細は assets/tarot_deck/README.md 参照。
+#
+# cat_featured: そのカードに描かれている猫種 (動画台本でキャラの自然な
+# ペアリングに使う)。確定済の4枚以外は判明し次第埋める。
+#
+# 小アルカナ56枚は将来必要に応じて追加。
 
 major:
   - id: 0
     en: The Fool
     jp: 愚者
+    image_file: assets/tarot_deck/major/00_fool.png
+    image_file_hires: assets/tarot_deck/major_hires/00_fool@4x.png
+    cat_featured: brown_tabby            # 茶トラ (旅人風)
     visual_en: "a youthful figure stepping off a cliff edge with a small dog at heels, holding a white rose, sun behind"
+    visual_jp: "茶トラの猫が魔法使いの帽子と星の袋を持ち、夕日の道へ踏み出す"
     upright_keywords: [始まり, 自由, 純粋, 可能性]
     reversed_keywords: [軽率, 無計画, 迷い]
+    short_message: "新しい一歩を踏み出す勇気が、あなたを導きます"
+
   - id: 1
     en: The Magician
     jp: 魔術師
+    image_file: assets/tarot_deck/major/01_magician.png
+    image_file_hires: assets/tarot_deck/major_hires/01_magician@4x.png
+    cat_featured: TBD
     visual_en: "a robed figure with one hand pointing up to the sky and one to the earth, infinity symbol overhead, four suit symbols on the table"
     upright_keywords: [創造, 意志, 始動, 才能]
     reversed_keywords: [策略, 未熟, 機会喪失]
+    short_message: "あなたの中の才能を信じて動き出す時"
+
   - id: 2
     en: The High Priestess
     jp: 女教皇
+    image_file: assets/tarot_deck/major/02_high_priestess.png
+    image_file_hires: assets/tarot_deck/major_hires/02_high_priestess@4x.png
+    cat_featured: TBD
     visual_en: "a serene robed priestess seated between two pillars, crescent moon at feet, a scroll partially hidden"
     upright_keywords: [直感, 知恵, 内省, 神秘]
     reversed_keywords: [秘密, 知識不足, 浅慮]
+    short_message: "答えはあなたの心の奥に静かに眠っています"
+
   - id: 3
     en: The Empress
     jp: 女帝
+    image_file: assets/tarot_deck/major/03_empress.png
+    image_file_hires: assets/tarot_deck/major_hires/03_empress@4x.png
+    cat_featured: TBD
     visual_en: "a regal woman crowned with stars, seated in a lush garden of wheat, a heart-shaped shield with venus symbol"
     upright_keywords: [豊かさ, 母性, 創造, 受容]
     reversed_keywords: [依存, 停滞, 過保護]
+    short_message: "受け取る豊かさを、ありがたく抱きしめて"
+
   - id: 4
     en: The Emperor
     jp: 皇帝
+    image_file: assets/tarot_deck/major/04_emperor.png
+    image_file_hires: assets/tarot_deck/major_hires/04_emperor@4x.png
+    cat_featured: TBD
     visual_en: "an authoritative ruler on a stone throne with ram-head decorations, mountains in background, scepter in hand"
     upright_keywords: [権威, 安定, 統治, 父性]
     reversed_keywords: [独善, 頑固, 支配]
+    short_message: "あなたの軸を決めて、堂々と進んでいい時"
+
   - id: 5
     en: The Hierophant
     jp: 教皇
+    image_file: assets/tarot_deck/major/05_hierophant.png
+    image_file_hires: assets/tarot_deck/major_hires/05_hierophant@4x.png
+    cat_featured: TBD
     visual_en: "a religious figure on a throne flanked by two pillars, hand raised in blessing, two acolytes kneeling"
     upright_keywords: [伝統, 助言, 信頼, 学び]
     reversed_keywords: [束縛, 形骸化, 反抗]
+    short_message: "信頼できる人の言葉が、今のあなたの道しるべに"
+
   - id: 6
     en: The Lovers
     jp: 恋人
+    image_file: assets/tarot_deck/major/06_lovers.png
+    image_file_hires: assets/tarot_deck/major_hires/06_lovers@4x.png
+    cat_featured: black_and_white_cat    # 黒猫+白猫が寄り添う
     visual_en: "a man and woman beneath a winged angel, sun above, a tree of life and a tree of knowledge behind them"
+    visual_jp: "夕焼けを背に黒猫と白猫が寄り添う、薔薇に囲まれた構図"
     upright_keywords: [愛, 選択, 結びつき, 調和]
     reversed_keywords: [迷い, 不調和, 別離]
+    short_message: "心が惹かれる方を選ぶ時、答えはもう知っているはず"
+
   - id: 7
     en: The Chariot
     jp: 戦車
+    image_file: assets/tarot_deck/major/07_chariot.png
+    image_file_hires: assets/tarot_deck/major_hires/07_chariot@4x.png
+    cat_featured: TBD
     visual_en: "a victorious figure in armor riding a chariot pulled by two sphinxes, starry canopy overhead"
     upright_keywords: [前進, 勝利, 意志, 制御]
     reversed_keywords: [失速, 暴走, 敗北]
+    short_message: "あなたから動くことで、状況が一気に進みます"
+
   - id: 8
     en: Strength
     jp: 力
+    image_file: assets/tarot_deck/major/08_strength.png
+    image_file_hires: assets/tarot_deck/major_hires/08_strength@4x.png
+    cat_featured: TBD
     visual_en: "a gentle woman calmly closing the jaws of a lion, infinity symbol over her head, flowers in her hair"
     upright_keywords: [内なる力, 忍耐, 勇気, 慈愛]
     reversed_keywords: [自信喪失, 無力感, 短気]
+    short_message: "やさしさの中の強さが、あなたを支えています"
+
   - id: 9
     en: The Hermit
     jp: 隠者
+    image_file: assets/tarot_deck/major/09_hermit.png
+    image_file_hires: assets/tarot_deck/major_hires/09_hermit@4x.png
+    cat_featured: TBD
     visual_en: "an old robed figure on a snowy mountain peak holding a glowing lantern, staff in the other hand"
     upright_keywords: [内省, 探求, 孤独, 知恵]
     reversed_keywords: [孤立, 偏屈, 拒絶]
+    short_message: "ひとりの時間が、大切な気づきをあなたに運びます"
+
   - id: 10
     en: Wheel of Fortune
     jp: 運命の輪
+    image_file: assets/tarot_deck/major/10_wheel_of_fortune.png
+    image_file_hires: assets/tarot_deck/major_hires/10_wheel_of_fortune@4x.png
+    cat_featured: TBD
     visual_en: "a great wheel in the sky with figures at four corners reading books, sphinx atop the wheel"
     upright_keywords: [転機, 巡り, 幸運, 変化]
     reversed_keywords: [停滞, 不運, 抵抗]
+    short_message: "巡ってくる流れに、身を任せていい時"
+
   - id: 11
     en: Justice
     jp: 正義
+    image_file: assets/tarot_deck/major/11_justice.png
+    image_file_hires: assets/tarot_deck/major_hires/11_justice@4x.png
+    cat_featured: TBD
     visual_en: "a crowned figure on a throne holding upright sword and balanced scales, between two pillars"
     upright_keywords: [公正, 決断, 真実, バランス]
     reversed_keywords: [不公平, 偏見, 責任回避]
+    short_message: "誠実な選択が、結果としてあなたを守ります"
+
   - id: 12
     en: The Hanged Man
     jp: 吊るされた男
+    image_file: assets/tarot_deck/major/12_hanged_man.png
+    image_file_hires: assets/tarot_deck/major_hires/12_hanged_man@4x.png
+    cat_featured: TBD
     visual_en: "a figure suspended upside-down from a T-shaped tree by one foot, halo of light around the head"
     upright_keywords: [視点転換, 忍耐, 受容, 内的成長]
     reversed_keywords: [停滞, 犠牲過剰, 逃避]
+    short_message: "視点を変えると、見えなかった答えが見えてきそう"
+
   - id: 13
     en: Death
     jp: 死神
+    image_file: assets/tarot_deck/major/13_death.png
+    image_file_hires: assets/tarot_deck/major_hires/13_death@4x.png
+    cat_featured: TBD
     visual_en: "a skeletal knight on a white horse carrying a black flag with a white rose, distant sun"
     upright_keywords: [終焉, 再生, 変容, 解放]
     reversed_keywords: [抵抗, 引き延ばし, 停滞]
+    short_message: "ひとつの章が静かに閉じ、新しい流れが始まりそう"
+
   - id: 14
     en: Temperance
     jp: 節制
+    image_file: assets/tarot_deck/major/14_temperance.png
+    image_file_hires: assets/tarot_deck/major_hires/14_temperance@4x.png
+    cat_featured: TBD
     visual_en: "a winged angel pouring water between two cups, one foot in water and one on land"
     upright_keywords: [調和, バランス, 節度, 統合]
     reversed_keywords: [極端, 不調和, 焦り]
+    short_message: "焦らず、あなたのペースで整えていけば大丈夫"
+
   - id: 15
     en: The Devil
     jp: 悪魔
+    image_file: assets/tarot_deck/major/15_devil.png
+    image_file_hires: assets/tarot_deck/major_hires/15_devil@4x.png
+    cat_featured: TBD
     visual_en: "a horned figure on a pedestal with two chained human figures, bat-like wings, inverted pentagram"
     upright_keywords: [執着, 誘惑, 束縛, 物質欲]
     reversed_keywords: [解放, 気づき, 鎖を外す]
+    short_message: "手放してもいいと気づくこと、それ自体が解放"
+
   - id: 16
     en: The Tower
     jp: 塔
+    image_file: assets/tarot_deck/major/16_tower.png
+    image_file_hires: assets/tarot_deck/major_hires/16_tower@4x.png
+    cat_featured: TBD
     visual_en: "a tall tower struck by lightning, crown falling, two figures plummeting against a stormy sky"
     upright_keywords: [衝撃, 崩壊, 啓示, 解放]
     reversed_keywords: [回避された災い, 内的混乱, 抵抗]
+    short_message: "壊れることで見えてくる、本当に大切なもの"
+
   - id: 17
     en: The Star
     jp: 星
+    image_file: assets/tarot_deck/major/17_star.png
+    image_file_hires: assets/tarot_deck/major_hires/17_star@4x.png
+    cat_featured: white_cat               # 白猫が星を見上げる
     visual_en: "a serene woman pouring water from two pitchers under a sky of seven small stars and one large star"
+    visual_jp: "白猫が星空を見上げ、湖と山の前で静かに座る"
     upright_keywords: [希望, 導き, 静けさ, 癒し]
     reversed_keywords: [失望, 自信喪失, 行き詰まり]
+    short_message: "願ってきたことに、希望の光が差し込みそう"
+
   - id: 18
     en: The Moon
     jp: 月
+    image_file: assets/tarot_deck/major/18_moon.png
+    image_file_hires: assets/tarot_deck/major_hires/18_moon@4x.png
+    cat_featured: black_cat               # 黒猫が三日月の下に座る
     visual_en: "a moon with a face above, dog and wolf howling at it, a crayfish emerging from water, two distant towers"
+    visual_jp: "黒猫が大きな三日月を背に、湖と百合に囲まれて座る"
     upright_keywords: [不安, 直感, 幻想, 潜在意識]
     reversed_keywords: [混乱解消, 真実発見, 安心]
+    short_message: "今の違和感こそが、大切なヒントになりそう"
+
   - id: 19
     en: The Sun
     jp: 太陽
+    image_file: assets/tarot_deck/major/19_sun.png
+    image_file_hires: assets/tarot_deck/major_hires/19_sun@4x.png
+    cat_featured: TBD
     visual_en: "a radiant sun above, a child on a white horse holding a banner, sunflowers in background"
     upright_keywords: [成功, 喜び, 活力, 達成]
     reversed_keywords: [遅延, 一時的曇り, 過信]
+    short_message: "心の中の不安が晴れて、明るい流れに乗っていける時"
+
   - id: 20
     en: Judgement
     jp: 審判
+    image_file: assets/tarot_deck/major/20_judgement.png
+    image_file_hires: assets/tarot_deck/major_hires/20_judgement@4x.png
+    cat_featured: TBD
     visual_en: "an angel blowing a trumpet from clouds while figures rise from coffins below, mountains in background"
     upright_keywords: [復活, 決断, 召命, 赦し]
     reversed_keywords: [迷い, 自己批判, 後悔]
+    short_message: "もう一度、自分を信じてみていいタイミング"
+
   - id: 21
     en: The World
     jp: 世界
+    image_file: assets/tarot_deck/major/21_world.png
+    image_file_hires: assets/tarot_deck/major_hires/21_world@4x.png
+    cat_featured: TBD
     visual_en: "a dancing figure inside a wreath, four creatures (lion, eagle, bull, angel) at the corners"
     upright_keywords: [完成, 達成, 統合, 旅の終わり]
     reversed_keywords: [未完, 停滞, 達成感の欠如]
+    short_message: "ひとつのサイクルが整い、次の世界の扉が開きそう"
+
+# === cat_featured の取りうる値 ===
+# black_cat        : 黒猫
+# white_cat        : 白猫
+# calico_cat       : 三毛猫
+# brown_tabby      : 茶トラ
+# siamese          : シャム猫
+# black_and_white_cat : 黒猫+白猫 のペア (恋人カード等)
+# multi_cats       : 3匹以上が登場
+# no_cat           : 猫が描かれていない (風景や象徴のみ)
+# TBD              : 未確定 (ユーザーが現物確認後に埋める)
