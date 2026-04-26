@@ -1,187 +1,214 @@
 # 占い動物キャストの定義
-# アカウントテーマ: 「占い動物園」
-# 1アカウントで複数の動物が日替わりで占う。最後に鳴き声で締める = ブランドサウンド。
+# アカウントテーマ: 「占い動物園・主は猫族の家」
+# 主軸 = 猫族 (3種) × タロット、ゲスト = 他動物 × 各専門ツール
 
 # === 主役 ===
-lead: cat                        # 黒猫がアカウントの顔。プロフ画像/サムネ統一感の中心
+lead: black_cat                  # 黒猫がアカウントの顔。プロフ画像/サムネ統一感の中心
 posting_share:                   # 月間投稿本数の目安配分
-  cat: 0.40                      # 4割を黒猫が担当 (主軸)
-  rabbit: 0.15
-  fox: 0.15
-  owl: 0.10
-  crow: 0.07
-  hedgehog: 0.07
-  shiba: 0.06
+  # 猫族 (タロット担当・主軸 70%)
+  black_cat: 0.30                # 主役・最頻出
+  calico_cat: 0.20               # 三毛猫・金運/仕事担当
+  siamese: 0.20                  # シャム猫・決断/キャリア担当
+  # ゲスト動物 (各々の専門ツール・30%)
+  rabbit: 0.10                   # うさぎ・パワーストーン
+  owl: 0.10                      # フクロウ・星読み
+  fox: 0.05                      # 狐・アンティーク鍵
+  hedgehog: 0.03                 # ハリネズミ・ハーブ
+  # 残り 0.02 は新ツール実験枠
 
 # === 共通スタイル ===
 shared:
-  format: comment_driven_short    # 短尺コメント誘導型 が標準
+  format: comment_driven_short
   duration_sec: 15
   end_signature: "鳴き声で締める"
   style_anchor: prompts/image_style_anchor.md
   visual_palette: "dark navy & gold mystical aesthetic"
-  cuts_per_video: 4               # hook / setup / choose-zoom / meow-end の4枚
+  cuts_per_video: 4
 
-# === 現役キャスト ===
-active:
-  cat:
-    jp: 黒猫占い師
-    en: Black Cat Diviner
-    role: lead                    # アカウントの主役
-    signature_tool: tarot         # この動物の代名詞ツール (`config/tools.yaml`)
-    compatible_tools: [tarot, candle, zodiac, key]   # この動物が扱えるツール一覧
+# === 猫族キャスト (タロット担当・主軸) ===
+cats:
+  black_cat:
+    jp: 黒猫
+    en: Black Cat
+    role: lead
+    tool: tarot
+    themes: [恋愛, 片思い, 復縁, あの人の本音, 運命, 結婚のタイミング]
     signature_sound: にゃおー
-    sound_file: assets/se/cat_meow.wav
+    sound_file: assets/se/cat_meow_black.wav
     sound_volume: 1.4
+    sound_quality: "低めで神秘的・余韻長め"
     accent_color: "#C8A24A"       # antique gold
     persona_voice: "落ち着いた神秘的・少し気だるげ"
     voicevox_speaker_id: 16       # 九州そら (cool)
-    image_role_hint:
-      hook: "口を大きく開けた近接、目力強い"
-      meow: "口を大きく開けた近接 (にゃおーの瞬間)"
-    tagline: "気まぐれな黒猫が、あなたへの一枚を引きます"
+    image_prompt_file: prompts/image_cat_characters.md  # black section
+    posting_time_recommend: "夜21:30 (主力CV枠)"
+    tagline: "気まぐれな黒猫が、あなたの恋の一枚を引きます"
     hashtag: "#黒猫占い"
+    asset_status: "8カット既存・即運用可"
 
+  calico_cat:
+    jp: 三毛猫
+    en: Calico Cat
+    role: support_cat
+    tool: tarot
+    themes: [金運, 仕事運, 幸運, 副業, 商売繁盛, 今週の運勢]
+    signature_sound: にゃ!
+    sound_file: assets/se/cat_meow_calico.wav
+    sound_volume: 1.3
+    sound_quality: "短く明るい・元気"
+    accent_color: "#D9883B"       # warm orange-gold
+    persona_voice: "明るく前向き・少しお茶目"
+    voicevox_speaker_id: 8        # 春日部つむぎ (元気)
+    image_prompt_file: prompts/image_cat_characters.md  # calico section
+    posting_time_recommend: "夜21:30 (金運系) または 朝7:30 (今日の幸運)"
+    tagline: "招き猫の三毛が、金運と幸運の一枚を選びます"
+    hashtag: "#三毛猫占い"
+    asset_status: "未生成・GPT Image 1で4カット作成必要"
+    cultural_note: "招き猫の代表色 = 金運の象徴"
+
+  siamese:
+    jp: シャム猫
+    en: Siamese Cat
+    role: support_cat
+    tool: tarot
+    themes: [決断, キャリア, 転職, 進路, 選択, 人生の岐路]
+    signature_sound: みゃおうっ
+    sound_file: assets/se/cat_meow_siamese.wav
+    sound_volume: 1.3
+    sound_quality: "鋭く知的・短く言い切る"
+    accent_color: "#3A3A6E"       # deep blue-violet
+    persona_voice: "知的で凛とした・少し冷たい品位"
+    voicevox_speaker_id: 47       # ナースロボ_タイプT (知的)
+    image_prompt_file: prompts/image_cat_characters.md  # siamese section
+    posting_time_recommend: "夜23:00 (深い決断テーマ)"
+    tagline: "賢きシャムが、あなたの選ぶべき道を示します"
+    hashtag: "#シャム猫占い"
+    asset_status: "未生成・GPT Image 1で4カット作成必要"
+    cultural_note: "王室で愛された賢明な猫種・神秘性と知性の象徴"
+
+# === ゲスト動物キャスト (専門ツール・30%) ===
+guests:
   rabbit:
     jp: 白うさぎ占い師
     en: White Rabbit Diviner
-    role: support
-    signature_tool: power_stone
-    compatible_tools: [power_stone, herb, candle, flower]
+    tool: power_stone
+    themes: [直感, 癒し, 対人関係, 心の整理]
     signature_sound: きゅうー
     sound_file: assets/se/rabbit_squeak.wav
     sound_volume: 1.2
     accent_color: "#E9D8E4"
-    persona_voice: "やわらかく可愛らしい、少しふんわり"
+    persona_voice: "やわらかく可愛らしい"
     voicevox_speaker_id: 14       # 冥鳴ひまり
-    image_role_hint:
-      hook: "正面ロングショット、目を大きく見開く"
-      meow: "鼻先アップ、口元が動くカット"
+    posting_time_recommend: "朝7:30 (癒し枠)"
     tagline: "うさぎの直感が、あなたに合う一石を選びます"
     hashtag: "#うさぎ占い"
-
-  fox:
-    jp: 狐の占い師
-    en: Fox Diviner
-    role: support
-    signature_tool: key
-    compatible_tools: [key, tarot, rune, candle]
-    signature_sound: コーン!
-    sound_file: assets/se/fox_call.wav
-    sound_volume: 1.3
-    accent_color: "#8E1F2E"
-    persona_voice: "凛として少しミステリアス・古風"
-    voicevox_speaker_id: 8        # 春日部つむぎ (凛)
-    image_role_hint:
-      hook: "正面、和装の襟元見える、目に光"
-      meow: "口を開けて鳴くカット"
-    tagline: "古き鍵を持つ狐が、あなたの扉を選びます"
-    hashtag: "#狐占い"
+    asset_status: "1カット既存・動画化済"
+    guest_appearance_share: 0.10
 
   owl:
     jp: フクロウ占い師
     en: Owl Diviner
-    role: support
-    signature_tool: moon          # 月相占い (3つの月相から選ぶ)
-    compatible_tools: [moon, scroll, rune, candle]
+    tool: zodiac
+    themes: [今週の運勢, 12星座, 手放し, 月のサイクル]
     signature_sound: ホー、ホー
     sound_file: assets/se/owl_hoot.wav
     sound_volume: 1.2
     accent_color: "#3A4A6E"
     persona_voice: "静かで知的・諭すように"
-    voicevox_speaker_id: 9        # 波音リツ (静)
-    image_role_hint:
-      hook: "金色の目を見開いた近接、首をやや傾ける"
-      meow: "口を僅かに開けて鳴くカット"
-    tagline: "夜の賢者が、あなたへの月のメッセージを"
+    voicevox_speaker_id: 9        # 波音リツ
+    posting_time_recommend: "深夜23:00"
+    tagline: "夜の賢者が、あなたへの星のメッセージを"
     hashtag: "#フクロウ占い"
-    posting_time_recommend: "22:00以降の深夜帯"
+    asset_status: "10カットストーリー既存・動画化済"
+    guest_appearance_share: 0.10
 
-  crow:
-    jp: カラス占い師
-    en: Raven Diviner
-    role: support
-    signature_tool: rune          # ルーン文字3つから選ぶ
-    compatible_tools: [rune, scroll, key]
-    signature_sound: カァー
-    sound_file: assets/se/crow_caw.wav
+  fox:
+    jp: 狐の占い師
+    en: Fox Diviner
+    tool: key
+    themes: [人生の節目, 転機, 新しい扉]
+    signature_sound: コーン!
+    sound_file: assets/se/fox_call.wav
     sound_volume: 1.3
-    accent_color: "#1F2027"
-    persona_voice: "重く厳かな・断定しすぎない警告調"
-    voicevox_speaker_id: 11       # 玄野武宏
-    image_role_hint:
-      hook: "片目だけアップ、羽根のディテール"
-      meow: "嘴を開けて鳴くカット"
-    tagline: "古き渡り鳥が、あなたへのルーンを運びます"
-    hashtag: "#カラス占い"
-    posting_time_recommend: "22:00以降、シリアス系テーマ"
+    accent_color: "#8E1F2E"
+    persona_voice: "凛として古風"
+    voicevox_speaker_id: 8
+    posting_time_recommend: "夜21:30 (人生決断テーマ)"
+    hashtag: "#狐占い"
+    asset_status: "3カット既存・追加生成推奨"
+    guest_appearance_share: 0.05
 
   hedgehog:
     jp: ハリネズミ占い師
     en: Hedgehog Diviner
-    role: support
-    signature_tool: herb          # ハーブ/ドライフラワー3束から選ぶ
-    compatible_tools: [herb, flower, power_stone, nut]   # nut = 木の実占い
+    tool: herb
+    themes: [癒し, 小さな気付き, 朝のメッセージ]
     signature_sound: フンッ
     sound_file: assets/se/hedgehog_sniff.wav
-    sound_volume: 1.0             # 小動物なので控えめ
-    accent_color: "#9C7B5C"       # warm beige
-    persona_voice: "小さく優しい・ささやくよう"
-    voicevox_speaker_id: 14       # 冥鳴ひまり (やわらか)
-    image_role_hint:
-      hook: "鼻先のアップ、針の質感"
-      meow: "鼻をひくつかせる仕草"
-    tagline: "小さなハリネズミが、あなたへの一葉を選びます"
+    sound_volume: 1.0
+    accent_color: "#9C7B5C"
+    persona_voice: "小さく優しい"
+    voicevox_speaker_id: 14
+    posting_time_recommend: "朝7:30"
     hashtag: "#ハリネズミ占い"
-    posting_time_recommend: "朝7:30〜の癒し枠"
+    asset_status: "未生成"
+    guest_appearance_share: 0.03
 
+# === 将来追加候補 ===
+roadmap:
+  white_cat:
+    jp: 白猫
+    tool: tarot
+    themes: [癒し, 浄化, 手放し]
+    signature_sound: みゃう
+    note: "Stage 2 で追加検討。三毛/シャムが軌道に乗ってから"
+  brown_tabby:
+    jp: 茶トラ
+    tool: tarot
+    themes: [対人, 友情, 家族]
+    signature_sound: にゃ〜ん
+    note: "Stage 2 で追加検討"
+  crow:
+    jp: カラス占い師
+    tool: rune
+    note: "深夜枠の補強として、フクロウとの差別化が確立してから"
   shiba:
     jp: 柴犬占い師
-    en: Shiba Diviner
-    role: support
-    signature_tool: omikuji       # おみくじ・お守り3つから選ぶ (和風)
-    compatible_tools: [omikuji, key, herb]
-    signature_sound: ワン!
-    sound_file: assets/se/shiba_bark.wav
-    sound_volume: 1.4
-    accent_color: "#D9883B"       # shiba orange
-    persona_voice: "明るく前向き・元気"
-    voicevox_speaker_id: 3        # ずんだもん代替: WhiteCUL等の明るい声
-    image_role_hint:
-      hook: "舌を出して笑顔、片耳がピン"
-      meow: "口を開けてワン!"
-    tagline: "元気な柴犬が、あなたへの一札を選びます"
-    hashtag: "#柴犬占い"
-    posting_time_recommend: "朝・昼の親しみやすい枠"
+    tool: omikuji
+    note: "和風枠としてフォロワー安定後に"
 
-# === 投稿ローテーション例 (1日3本) ===
+# === 投稿ローテーション例 (1週間 / Path B 仕様) ===
 posting_rotation_example:
   monday:
-    morning_730: { cast: hedgehog, tool: herb, theme: "今日の癒しメッセージ" }
-    evening_2130: { cast: cat, tool: tarot, theme: "片思いの行方" }
-    night_2300: { cast: owl, tool: moon, theme: "近々訪れる変化" }
+    evening_2130: { cast: black_cat, theme: "片思いの行方" }
   tuesday:
-    morning_730: { cast: rabbit, tool: power_stone, theme: "対人関係のヒント" }
-    evening_2130: { cast: cat, tool: candle, theme: "金運の流れ" }
-    night_2300: { cast: crow, tool: rune, theme: "今手放すべきもの" }
+    morning_730: { cast: rabbit, theme: "今週の直感メッセージ" }
   wednesday:
-    morning_730: { cast: shiba, tool: omikuji, theme: "今日の運勢" }
-    evening_2130: { cast: cat, tool: tarot, theme: "復縁の可能性" }
-    night_2300: { cast: fox, tool: key, theme: "次の扉" }
+    evening_2130: { cast: calico_cat, theme: "金運の流れ" }
+  thursday:
+    evening_2130: { cast: black_cat, theme: "あの人の本音" }
+  friday:
+    night_2300: { cast: owl, theme: "今週手放すべきもの" }
+  saturday:
+    night_2300: { cast: siamese, theme: "今あなたが選ぶべき道" }
+  sunday:
+    morning_730: { cast: black_cat, theme: "今日のメッセージ" }
+# 猫族4本 / ゲスト3本 = 月間配分70%/30%と整合
 
 # === ブランディング ===
 account_branding:
   recommended_handle_examples:
     - "@uranai_doubutsuen"
     - "@uranai_zoo"
+    - "@neko_uranai_kan"        # 「猫占い館」寄り
     - "@mofu_uranai"
   bio_template: |
-    🐈🐇🦊🦉🐦🦔🐕 占い動物園
-    主役は黒猫
-    タロット/星座/パワーストーン/キャンドル… 視覚で楽しむ3択占い
+    🖤🧡💜 占い動物園
+    主は黒猫・三毛・シャムのタロット師たち
+    ときどきうさぎ🐇 フクロウ🦉もゲスト鑑定
     結果はピン留めコメント👇
-    本格鑑定はリンクから #PR
     ※エンタメ目的
   profile_image_strategy:
-    - 黒猫 hook カットを基本にして他動物は脇に小さく配置
-    - もしくは黒猫を中央、周囲に他動物のシルエットで「動物園」感を出す
+    - 主役の黒猫を中央
+    - 周囲に三毛・シャムを配置 (三猫構図)
+    - 他動物は bio や 動画で示唆
