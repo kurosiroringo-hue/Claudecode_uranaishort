@@ -1,0 +1,118 @@
+# 占い動物キャストの定義
+# 1アカウントで複数の動物が日替わりで占う構成。
+# 全動画共通: 最後に「鳴き声」で締める = ブランドサウンド。
+
+# 共通スタイル
+shared:
+  format: comment_driven_short    # 短尺コメント誘導型 が標準
+  duration_sec: 15
+  end_signature: "鳴き声で締める (アカウントの統一ブランド音)"
+  style_anchor: prompts/image_style_anchor.md
+  visual_palette: "dark navy & gold mystical aesthetic"
+
+# 現在の出演キャスト
+active:
+  cat:
+    jp: 黒猫占い師
+    en: Black Cat Diviner
+    tool: タロットカード (大アルカナ)
+    tool_en: tarot major arcana
+    signature_sound: にゃおー
+    sound_file: assets/se/cat_meow.wav      # 効果音ラボ等から商用OK素材
+    sound_volume: 1.4
+    accent_color: "#C8A24A"                  # antique gold
+    persona_voice: "落ち着いた神秘的・少し気だるげ"
+    voicevox_speaker_id: 16                  # 九州そら (cool)
+    image_role_hint:
+      hook: "口を大きく開けた近接、目力強い"
+      meow: "口を大きく開けた近接 (にゃおーの瞬間)"
+    tagline: "気まぐれな黒猫が、あなたへの一枚を引きます"
+    hashtag: "#黒猫占い"
+
+  rabbit:
+    jp: 白うさぎ占い師
+    en: White Rabbit Diviner
+    tool: パワーストーン (ローズクォーツ・アメジスト・シトリン)
+    tool_en: crystal stones
+    signature_sound: きゅうー  # うさぎは鳴かないが、「キュッ」「キュンッ」系の擬音
+    sound_file: assets/se/rabbit_squeak.wav  # 代替: 短い鼻息+キュッ系SE
+    sound_volume: 1.2
+    accent_color: "#E9D8E4"                  # soft pink-violet
+    persona_voice: "やわらかく可愛らしい、少しふんわり"
+    voicevox_speaker_id: 14                  # 冥鳴ひまり (やわらかめ)
+    image_role_hint:
+      hook: "正面ロングショット、目を大きく見開く"
+      meow: "鼻先アップ、口元が動くカット"
+    tagline: "うさぎの直感が、あなたに合う一石を選びます"
+    hashtag: "#うさぎ占い"
+
+  fox:
+    jp: 狐の占い師
+    en: Fox Diviner
+    tool: アンティーク鍵 (鍵の形が異なる3本)
+    tool_en: antique keys
+    signature_sound: コーン!
+    sound_file: assets/se/fox_call.wav       # 「キャン」「コーン」系
+    sound_volume: 1.3
+    accent_color: "#8E1F2E"                  # deep crimson
+    persona_voice: "凛として少しミステリアス・古風"
+    voicevox_speaker_id: 13                  # 青山龍星 (ミステリアス) ※女性なら別
+    image_role_hint:
+      hook: "正面、和装の襟元見える、目に光"
+      meow: "口を開けて鳴くカット"
+    tagline: "古き鍵を持つ狐が、あなたの扉を選びます"
+    hashtag: "#狐占い"
+
+# 将来的に追加候補
+roadmap:
+  owl:
+    jp: フクロウ占い師
+    tool: 古文書のページ (3枚)
+    signature_sound: ホー、ホー
+    note: "夜の動画 (22時以降投稿) と相性が良い"
+  wolf:
+    jp: 狼占い師
+    tool: ルーン文字 (3つ)
+    signature_sound: ウォーン
+    note: "強めの主張テーマ (人生の決断系) で使う"
+  dog:
+    jp: 柴犬占い師
+    tool: お守り (3つ)
+    signature_sound: ワン!
+    note: "親しみやすさで初心者層向け"
+  bird:
+    jp: カラス占い師
+    tool: 黒い羽根 (3枚)
+    signature_sound: カァー
+    note: "シリアスなテーマ (覚悟・決断) と相性"
+
+# 投稿ローテーション例 (1日3本)
+posting_rotation_example:
+  morning_730:
+    cast: rabbit
+    theme: "今日のメッセージ (ライトな対人運)"
+  evening_2130:
+    cast: cat
+    theme: "恋愛/復縁系 (主力CV狙い)"
+  night_2300:
+    cast: fox
+    theme: "決断・転機系 (深いテーマ)"
+
+# アカウントブランディング
+account_branding:
+  recommended_handle_examples:
+    - "@uranai_doubutsu"
+    - "@uranai_dobutsuen"   # 占い動物園
+    - "@mofu_uranai"        # もふ占い
+  bio_template: |
+    {動物の絵文字3〜5個} 占い動物園
+    毎日21:30〜タロット/パワーストーン/古鍵で3択占い
+    結果はピン留めコメント👇
+    本格鑑定はリンクから #PR
+    ※エンタメ目的
+  bio_example: |
+    🐈🐇🦊 占い動物園
+    毎日21:30 3択占いを更新
+    結果はピン留めコメント👇
+    本格鑑定はリンクから #PR
+    ※エンタメ目的
