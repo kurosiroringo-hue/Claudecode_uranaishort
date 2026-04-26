@@ -28,7 +28,7 @@ major:
     jp: 魔術師
     image_file: assets/tarot_deck/major/01_magician.jpg
     image_file_hires: assets/tarot_deck/major_hires/01_magician@4x.png
-    cat_featured: TBD
+    cat_featured: black_and_white_cat            # ハチワレ (魔法使いの装い)
     visual_en: "a robed figure with one hand pointing up to the sky and one to the earth, infinity symbol overhead, four suit symbols on the table"
     upright_keywords: [創造, 意志, 始動, 才能]
     reversed_keywords: [策略, 未熟, 機会喪失]
@@ -39,7 +39,7 @@ major:
     jp: 女教皇
     image_file: assets/tarot_deck/major/02_high_priestess.jpg
     image_file_hires: assets/tarot_deck/major_hires/02_high_priestess@4x.png
-    cat_featured: TBD
+    cat_featured: siamese            # シャム猫 (女教皇=神秘・直感とぴったり)
     visual_en: "a serene robed priestess seated between two pillars, crescent moon at feet, a scroll partially hidden"
     upright_keywords: [直感, 知恵, 内省, 神秘]
     reversed_keywords: [秘密, 知識不足, 浅慮]
@@ -50,7 +50,7 @@ major:
     jp: 女帝
     image_file: assets/tarot_deck/major/03_empress.jpg
     image_file_hires: assets/tarot_deck/major_hires/03_empress@4x.png
-    cat_featured: TBD
+    cat_featured: calico_cat            # 白茶長毛 (calico寄り、優雅な女帝)
     visual_en: "a regal woman crowned with stars, seated in a lush garden of wheat, a heart-shaped shield with venus symbol"
     upright_keywords: [豊かさ, 母性, 創造, 受容]
     reversed_keywords: [依存, 停滞, 過保護]
@@ -61,7 +61,7 @@ major:
     jp: 皇帝
     image_file: assets/tarot_deck/major/04_emperor.jpg
     image_file_hires: assets/tarot_deck/major_hires/04_emperor@4x.png
-    cat_featured: TBD
+    cat_featured: brown_tabby            # メインクーン風オレンジタビー
     visual_en: "an authoritative ruler on a stone throne with ram-head decorations, mountains in background, scepter in hand"
     upright_keywords: [権威, 安定, 統治, 父性]
     reversed_keywords: [独善, 頑固, 支配]
@@ -72,7 +72,7 @@ major:
     jp: 教皇
     image_file: assets/tarot_deck/major/05_hierophant.jpg
     image_file_hires: assets/tarot_deck/major_hires/05_hierophant@4x.png
-    cat_featured: TBD
+    cat_featured: gray_white_cat            # グレー&白の長毛
     visual_en: "a religious figure on a throne flanked by two pillars, hand raised in blessing, two acolytes kneeling"
     upright_keywords: [伝統, 助言, 信頼, 学び]
     reversed_keywords: [束縛, 形骸化, 反抗]
@@ -95,7 +95,7 @@ major:
     jp: 戦車
     image_file: assets/tarot_deck/major/07_chariot.jpg
     image_file_hires: assets/tarot_deck/major_hires/07_chariot@4x.png
-    cat_featured: TBD
+    cat_featured: multi_cats            # グレートラ + 白猫スフィンクス + 黒猫スフィンクスの3匹構成
     visual_en: "a victorious figure in armor riding a chariot pulled by two sphinxes, starry canopy overhead"
     upright_keywords: [前進, 勝利, 意志, 制御]
     reversed_keywords: [失速, 暴走, 敗北]
@@ -106,7 +106,7 @@ major:
     jp: 力
     image_file: assets/tarot_deck/major/08_strength.jpg
     image_file_hires: assets/tarot_deck/major_hires/08_strength@4x.png
-    cat_featured: TBD
+    cat_featured: brown_tabby            # オレンジタビー (背後にライオンの幻影)
     visual_en: "a gentle woman calmly closing the jaws of a lion, infinity symbol over her head, flowers in her hair"
     upright_keywords: [内なる力, 忍耐, 勇気, 慈愛]
     reversed_keywords: [自信喪失, 無力感, 短気]
@@ -117,7 +117,7 @@ major:
     jp: 隠者
     image_file: assets/tarot_deck/major/09_hermit.jpg
     image_file_hires: assets/tarot_deck/major_hires/09_hermit@4x.png
-    cat_featured: TBD
+    cat_featured: gray_cat            # ロシアンブルー風の単色グレー (ランタンを持つ)
     visual_en: "an old robed figure on a snowy mountain peak holding a glowing lantern, staff in the other hand"
     upright_keywords: [内省, 探求, 孤独, 知恵]
     reversed_keywords: [孤立, 偏屈, 拒絶]
@@ -128,7 +128,7 @@ major:
     jp: 運命の輪
     image_file: assets/tarot_deck/major/10_wheel_of_fortune.jpg
     image_file_hires: assets/tarot_deck/major_hires/10_wheel_of_fortune@4x.png
-    cat_featured: TBD
+    cat_featured: calico_cat            # 三毛猫 (運命の輪の中央)
     visual_en: "a great wheel in the sky with figures at four corners reading books, sphinx atop the wheel"
     upright_keywords: [転機, 巡り, 幸運, 変化]
     reversed_keywords: [停滞, 不運, 抵抗]
@@ -139,7 +139,7 @@ major:
     jp: 正義
     image_file: assets/tarot_deck/major/11_justice.jpg
     image_file_hires: assets/tarot_deck/major_hires/11_justice@4x.png
-    cat_featured: TBD
+    cat_featured: white_cat            # 白の長毛 (天秤を持つ)
     visual_en: "a crowned figure on a throne holding upright sword and balanced scales, between two pillars"
     upright_keywords: [公正, 決断, 真実, バランス]
     reversed_keywords: [不公平, 偏見, 責任回避]
@@ -150,7 +150,7 @@ major:
     jp: 吊るされた男
     image_file: assets/tarot_deck/major/12_hanged_man.jpg
     image_file_hires: assets/tarot_deck/major_hires/12_hanged_man@4x.png
-    cat_featured: TBD
+    cat_featured: cream_cat            # クリーム色 (リボンで吊るされる)
     visual_en: "a figure suspended upside-down from a T-shaped tree by one foot, halo of light around the head"
     upright_keywords: [視点転換, 忍耐, 受容, 内的成長]
     reversed_keywords: [停滞, 犠牲過剰, 逃避]
@@ -161,7 +161,7 @@ major:
     jp: 死神
     image_file: assets/tarot_deck/major/13_death.jpg
     image_file_hires: assets/tarot_deck/major_hires/13_death@4x.png
-    cat_featured: TBD
+    cat_featured: black_cat            # 黒猫 (マントを羽織る、夕暮れ)
     visual_en: "a skeletal knight on a white horse carrying a black flag with a white rose, distant sun"
     upright_keywords: [終焉, 再生, 変容, 解放]
     reversed_keywords: [抵抗, 引き延ばし, 停滞]
@@ -172,7 +172,7 @@ major:
     jp: 節制
     image_file: assets/tarot_deck/major/14_temperance.jpg
     image_file_hires: assets/tarot_deck/major_hires/14_temperance@4x.png
-    cat_featured: TBD
+    cat_featured: cream_cat            # クリーム色 (水差しを2つ持つ)
     visual_en: "a winged angel pouring water between two cups, one foot in water and one on land"
     upright_keywords: [調和, バランス, 節度, 統合]
     reversed_keywords: [極端, 不調和, 焦り]
@@ -183,7 +183,7 @@ major:
     jp: 悪魔
     image_file: assets/tarot_deck/major/15_devil.jpg
     image_file_hires: assets/tarot_deck/major_hires/15_devil@4x.png
-    cat_featured: TBD
+    cat_featured: black_cat            # 黒猫 (鎖を巻きつけている)
     visual_en: "a horned figure on a pedestal with two chained human figures, bat-like wings, inverted pentagram"
     upright_keywords: [執着, 誘惑, 束縛, 物質欲]
     reversed_keywords: [解放, 気づき, 鎖を外す]
@@ -194,7 +194,7 @@ major:
     jp: 塔
     image_file: assets/tarot_deck/major/16_tower.jpg
     image_file_hires: assets/tarot_deck/major_hires/16_tower@4x.png
-    cat_featured: TBD
+    cat_featured: gray_tabby            # 灰茶のタビー (落雷の塔の前)
     visual_en: "a tall tower struck by lightning, crown falling, two figures plummeting against a stormy sky"
     upright_keywords: [衝撃, 崩壊, 啓示, 解放]
     reversed_keywords: [回避された災い, 内的混乱, 抵抗]
@@ -229,7 +229,7 @@ major:
     jp: 太陽
     image_file: assets/tarot_deck/major/19_sun.jpg
     image_file_hires: assets/tarot_deck/major_hires/19_sun@4x.png
-    cat_featured: TBD
+    cat_featured: brown_tabby            # オレンジタビー (太陽を背にする)
     visual_en: "a radiant sun above, a child on a white horse holding a banner, sunflowers in background"
     upright_keywords: [成功, 喜び, 活力, 達成]
     reversed_keywords: [遅延, 一時的曇り, 過信]
@@ -240,7 +240,7 @@ major:
     jp: 審判
     image_file: assets/tarot_deck/major/20_judgement.jpg
     image_file_hires: assets/tarot_deck/major_hires/20_judgement@4x.png
-    cat_featured: TBD
+    cat_featured: white_cat            # 白の長毛 (光と天使の翼)
     visual_en: "an angel blowing a trumpet from clouds while figures rise from coffins below, mountains in background"
     upright_keywords: [復活, 決断, 召命, 赦し]
     reversed_keywords: [迷い, 自己批判, 後悔]
@@ -251,19 +251,28 @@ major:
     jp: 世界
     image_file: assets/tarot_deck/major/21_world.jpg
     image_file_hires: assets/tarot_deck/major_hires/21_world@4x.png
-    cat_featured: TBD
+    cat_featured: calico_cat            # 三毛猫 (世界の中心、四元素の象徴に囲まれる)
     visual_en: "a dancing figure inside a wreath, four creatures (lion, eagle, bull, angel) at the corners"
     upright_keywords: [完成, 達成, 統合, 旅の終わり]
     reversed_keywords: [未完, 停滞, 達成感の欠如]
     short_message: "ひとつのサイクルが整い、次の世界の扉が開きそう"
 
 # === cat_featured の取りうる値 ===
-# black_cat        : 黒猫
-# white_cat        : 白猫
-# calico_cat       : 三毛猫
-# brown_tabby      : 茶トラ
-# siamese          : シャム猫
-# black_and_white_cat : 黒猫+白猫 のペア (恋人カード等)
-# multi_cats       : 3匹以上が登場
-# no_cat           : 猫が描かれていない (風景や象徴のみ)
-# TBD              : 未確定 (ユーザーが現物確認後に埋める)
+# 主要カテゴリ (占い師キャラと対応):
+# black_cat           : 黒猫 (主役・恋愛系担当)
+# white_cat           : 白猫
+# calico_cat          : 三毛猫 (金運担当)
+# brown_tabby         : 茶トラ (オレンジタビー)
+# siamese             : シャム猫 (決断担当)
+#
+# 単独柄バリエ:
+# gray_cat            : 単色グレー (ロシアンブルー風)
+# gray_tabby          : グレーのタビー (縞模様)
+# cream_cat           : クリーム色 (薄ベージュ系)
+# gray_white_cat      : グレーと白の混合
+#
+# 複合:
+# black_and_white_cat : ハチワレ または 黒猫+白猫 のペア
+# multi_cats          : 3匹以上が登場 (戦車カード等)
+# no_cat              : 猫が描かれていない (風景や象徴のみ)
+# TBD                 : 未確定
