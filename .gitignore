@@ -1,0 +1,35 @@
+# 機密
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# 生成物 (ローカルにのみ保持)
+output/
+!output/.gitkeep
+assets/bgm/*.mp3
+assets/bgm/*.wav
+!assets/bgm/.gitkeep
+!assets/bgm/LICENSE.md
+assets/fonts/*.otf
+assets/fonts/*.ttf
+!assets/fonts/.gitkeep
+assets/overlays/style_ref.png
+!assets/overlays/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp

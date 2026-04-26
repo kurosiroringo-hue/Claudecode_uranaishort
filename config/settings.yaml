@@ -1,0 +1,102 @@
+# パイプライン共通設定
+# 機密情報 (APIキー) はここに書かず .env を使うこと
+
+video:
+  width: 1080
+  height: 1920
+  fps: 30
+  target_duration_sec_min: 30
+  target_duration_sec_max: 60
+  codec: libx264
+  preset: medium
+  crf: 20
+  pix_fmt: yuv420p
+  audio_codec: aac
+  audio_bitrate: 192k
+
+audio:
+  voice_volume: 1.0
+  bgm_volume: 0.18
+  ducking:
+    threshold: 0.05
+    ratio: 8
+    attack: 20
+    release: 400
+
+models:
+  script:
+    provider: anthropic
+    name: claude-sonnet-4-6
+    max_output_tokens: 1500
+    cache_system_prompt: true
+  image_primary:
+    provider: openai
+    name: gpt-image-1
+    quality: medium      # low / medium / high
+    size: 1024x1536      # vertical
+    use_reference: true
+    reference_path: assets/overlays/style_ref.png
+  image_secondary:       # コスト圧縮用 (文字なし背景カット)
+    provider: google
+    name: gemini-2.5-flash-image
+    use_for_roles:
+      - reveal
+      - transition
+  tts:
+    provider: voicevox
+    base_url: http://localhost:50021
+    speaker_id: 16       # 九州そら (cool) — 占い向け落ち着いた声
+    speed: 1.0
+    intonation: 1.05
+    volume: 1.0
+
+subtitles:
+  font_family: "Noto Sans JP"
+  font_path: assets/fonts/NotoSansJP-Bold.otf
+  font_size: 90
+  primary_color: "&H00FFFFFF"   # white
+  outline_color: "&H00000000"   # black
+  outline_width: 8
+  shadow: 2
+  alignment: 2                  # bottom-center
+  margin_v: 280                 # px from bottom
+
+bgm_pool:
+  - assets/bgm/mystic01.mp3
+  - assets/bgm/mystic02.mp3
+  - assets/bgm/mystic03.mp3
+
+genres:
+  tarot3:
+    image_count: 6
+    image_roles:
+      - hook
+      - card_a
+      - card_b
+      - card_c
+      - reveal
+      - cta
+    target_duration_sec: 50
+  zodiac:
+    image_count: 5
+    image_roles:
+      - hook
+      - zodiac_top
+      - zodiac_mid
+      - zodiac_bottom
+      - cta
+    target_duration_sec: 45
+
+platforms:
+  tiktok:
+    suffix: tiktok
+    max_duration_sec: 60
+    caption_max_chars: 2200
+  reels:
+    suffix: reels
+    max_duration_sec: 90
+    caption_max_chars: 2200
+  shorts:
+    suffix: shorts
+    max_duration_sec: 60
+    title_max_chars: 100

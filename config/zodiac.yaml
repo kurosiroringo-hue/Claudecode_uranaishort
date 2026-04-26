@@ -1,0 +1,158 @@
+# 12星座メタデータ
+# 画像生成プロンプトと台本生成で参照する正準データ
+
+aries:
+  jp: 牡羊座
+  en: Aries
+  date_range: "3/21 - 4/19"
+  element: fire
+  ruler: Mars
+  symbol: "雄羊の角"
+  symbol_en: "stylized ram horns curving outward"
+  color: "#D14A5A"     # rose red
+  color_name: rose red
+  emoji: "♈"
+  keywords: [情熱, 行動力, 直感, リーダー]
+
+taurus:
+  jp: 牡牛座
+  en: Taurus
+  date_range: "4/20 - 5/20"
+  element: earth
+  ruler: Venus
+  symbol: "牛の角と顔"
+  symbol_en: "minimal line drawing of a bull head with horns"
+  color: "#1E8B5C"     # emerald green
+  color_name: emerald green
+  emoji: "♉"
+  keywords: [安定, 五感, 美意識, 忍耐]
+
+gemini:
+  jp: 双子座
+  en: Gemini
+  date_range: "5/21 - 6/21"
+  element: air
+  ruler: Mercury
+  symbol: "並ぶ二人の人影"
+  symbol_en: "two mirrored human silhouettes side by side"
+  color: "#E8C73A"     # sunny yellow
+  color_name: sunny yellow
+  emoji: "♊"
+  keywords: [知性, 多面性, 軽やかさ, 好奇心]
+
+cancer:
+  jp: 蟹座
+  en: Cancer
+  date_range: "6/22 - 7/22"
+  element: water
+  ruler: Moon
+  symbol: "蟹のシルエットと月"
+  symbol_en: "crab silhouette with crescent moon above"
+  color: "#C5C9D1"     # pearl silver
+  color_name: pearl silver
+  emoji: "♋"
+  keywords: [家庭, 共感, 感受性, 守り]
+
+leo:
+  jp: 獅子座
+  en: Leo
+  date_range: "7/23 - 8/22"
+  element: fire
+  ruler: Sun
+  symbol: "獅子の顔と太陽のたてがみ"
+  symbol_en: "majestic lion head with sun-ray mane"
+  color: "#D4A437"     # royal gold
+  color_name: royal gold
+  emoji: "♌"
+  keywords: [自信, 創造, 寛容, 表現]
+
+virgo:
+  jp: 乙女座
+  en: Virgo
+  date_range: "8/23 - 9/22"
+  element: earth
+  ruler: Mercury
+  symbol: "麦の穂を持つ女性"
+  symbol_en: "feminine silhouette holding wheat ears"
+  color: "#7BAA72"     # soft green
+  color_name: soft green
+  emoji: "♍"
+  keywords: [誠実, 分析, 奉仕, 整理]
+
+libra:
+  jp: 天秤座
+  en: Libra
+  date_range: "9/23 - 10/23"
+  element: air
+  ruler: Venus
+  symbol: "天秤"
+  symbol_en: "balanced scales on an ornate base"
+  color: "#7AB8D4"     # sky blue
+  color_name: sky blue
+  emoji: "♎"
+  keywords: [調和, 美, 公正, 社交]
+
+scorpio:
+  jp: 蠍座
+  en: Scorpio
+  date_range: "10/24 - 11/22"
+  element: water
+  ruler: Pluto
+  symbol: "蠍と尻尾の曲線"
+  symbol_en: "scorpion silhouette with curved S-shaped tail"
+  color: "#8E1F2E"     # deep crimson
+  color_name: deep crimson
+  emoji: "♏"
+  keywords: [情熱, 神秘, 深さ, 変容]
+
+sagittarius:
+  jp: 射手座
+  en: Sagittarius
+  date_range: "11/23 - 12/21"
+  element: fire
+  ruler: Jupiter
+  symbol: "弓を引くケンタウロス"
+  symbol_en: "centaur archer drawing a bow"
+  color: "#7E54B5"     # violet
+  color_name: violet
+  emoji: "♐"
+  keywords: [冒険, 自由, 哲学, 拡大]
+
+capricorn:
+  jp: 山羊座
+  en: Capricorn
+  date_range: "12/22 - 1/19"
+  element: earth
+  ruler: Saturn
+  symbol: "山羊の頭と海羊の尾"
+  symbol_en: "goat head with serpentine fish tail"
+  color: "#2A2D33"     # charcoal black
+  color_name: charcoal
+  emoji: "♑"
+  keywords: [責任, 達成, 規律, 計画]
+
+aquarius:
+  jp: 水瓶座
+  en: Aquarius
+  date_range: "1/20 - 2/18"
+  element: air
+  ruler: Uranus
+  symbol: "水瓶から流れる水"
+  symbol_en: "water vessel pouring flowing waves"
+  color: "#3478D6"     # electric blue
+  color_name: electric blue
+  emoji: "♒"
+  keywords: [独創, 革新, 友愛, 自由]
+
+pisces:
+  jp: 魚座
+  en: Pisces
+  date_range: "2/19 - 3/20"
+  element: water
+  ruler: Neptune
+  symbol: "二匹の魚が円を描く"
+  symbol_en: "two fish swimming in a circular pattern"
+  color: "#3A8E84"     # sea green
+  color_name: sea green
+  emoji: "♓"
+  keywords: [感受性, 夢, 芸術, 共鳴]
