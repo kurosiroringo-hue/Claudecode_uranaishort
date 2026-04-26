@@ -1,0 +1,169 @@
+# 占いツールの定義
+# アカウントテーマ「占い動物園」で使う、視覚的に楽しめる占い手法のレジストリ。
+# 各ツールは 3択 (A/B/C) の選択肢を提示できる構造を持つこと。
+# 動物 (cast.yaml) との組み合わせで動画を生成する。
+
+# === ツール一覧 ===
+tools:
+
+  tarot:
+    jp: タロットカード
+    en: Tarot
+    visual_strength: 高           # 画像で映えるか
+    use_case: "万能。最もポピュラーで初心者にも優しい"
+    choice_format: "A/B/C 3枚のカード裏面 (ピン留めコメントで表側を開示)"
+    sample_choice_sets:
+      - [The Sun (太陽), The Moon (月), The Star (星)]                    # 希望系
+      - [The Lovers (恋人), Wheel of Fortune (運命の輪), The World (世界)] # 運命系
+      - [Strength (力), Temperance (節制), The Hermit (隠者)]              # 内省系
+      - [The Chariot (戦車), The Magician (魔術師), The Sun (太陽)]        # 前進系
+    image_prompt_file: prompts/image_tarot.md
+    deck_meta: config/tarot_deck.yaml
+
+  zodiac:
+    jp: 星座 (12星座/西洋占星術)
+    en: Zodiac (Horoscope)
+    visual_strength: 中
+    use_case: "毎朝の運勢動画に最適。3択というより12星座スコア発表型"
+    choice_format: "今日のラッキー3星座 / 要注意3星座 を発表 → 自分の星座をコメ欄で報告"
+    sample_choice_sets:
+      - [上位3, 中位3, 下位3]
+    image_prompt_file: prompts/image_zodiac.md
+    meta: config/zodiac.yaml
+
+  power_stone:
+    jp: パワーストーン
+    en: Crystal / Gemstone
+    visual_strength: 高           # ストーンの輝きが映える
+    use_case: "癒し系・対人系テーマと相性良し"
+    choice_format: "A/B/C の3つのストーン (色や属性で性格分け)"
+    sample_choice_sets:
+      - [ローズクォーツ (愛・受容), アメジスト (直感・浄化), シトリン (金運・成功)]
+      - [ムーンストーン (内省), ラピスラズリ (真実), ターコイズ (旅・新しい風)]
+      - [ガーネット (情熱), アクアマリン (平穏), ペリドット (再生)]
+      - [ブラックトルマリン (魔除け), タイガーアイ (決断), カーネリアン (行動力)]
+    image_prompt_file: prompts/image_power_stone.md   # M2で作成
+
+  candle:
+    jp: キャンドル占い
+    en: Candle Magick / Cromniomancy
+    visual_strength: 最高         # 炎・煙・蝋の流れがアニメーション的に美しい
+    use_case: "夜の動画と相性◎。視覚インパクト最大"
+    choice_format: |
+      A/B/C 3本の異なる色のキャンドル。
+      動画では3本が並び、ゆらめく炎を見せる。視聴者は直感で1本選択。
+      ピン留めコメントで「炎の動き/蝋の流れ/色の意味」で結果を開示。
+    sample_choice_sets:
+      - [赤 (情熱・行動), 白 (浄化・始まり), 青 (冷静・深い気づき)]
+      - [紫 (霊性・直感), 緑 (癒し・成長), 黄 (喜び・発信)]
+      - [ピンク (愛・優しさ), 黒 (手放し・終わり), 銀 (月・神秘)]
+    flame_states:                 # ピン留めコメントで使える炎の解釈
+      tall_steady: "強くまっすぐ → 強い意志、流れに乗っていく"
+      flickering: "ゆらめく → 迷いと可能性が同居している"
+      smoking: "煙が出る → 浄化が必要なものがある"
+      crackling: "パチッと弾ける → 大きな変化のサイン"
+      dim: "弱く小さい → 休息が必要、無理しないで"
+    image_prompt_file: prompts/image_candle.md         # M2で作成
+
+  key:
+    jp: アンティーク鍵
+    en: Antique Keys
+    visual_strength: 高           # 既存の狐カットで実証済
+    use_case: "決断・転機テーマ。古風で重厚な印象"
+    choice_format: "A/B/C の3本の鍵 (素材/形/装飾で意味を変える)"
+    sample_choice_sets:
+      - [銅の鍵 (始まり), 銀の鍵 (内省), 金の鍵 (成就)]
+      - [月の鍵 (直感), 太陽の鍵 (前進), 星の鍵 (希望)]
+      - [古い鍵 (過去の解放), 細い鍵 (繊細な変化), 重い鍵 (大きな決断)]
+    image_prompt_file: prompts/image_key.md            # M2で作成
+
+  rune:
+    jp: ルーン文字
+    en: Runes
+    visual_strength: 中
+    use_case: "シリアス・古代神秘テーマ。カラスと相性◎"
+    choice_format: "A/B/C 3つのルーン石 (彫刻された文字を見せる)"
+    sample_choice_sets:
+      - [Fehu ᚠ (豊かさ), Ansuz ᚨ (メッセージ), Sowilo ᛋ (太陽・成功)]
+      - [Berkano ᛒ (新生), Kenaz ᚲ (洞察), Wunjo ᚹ (喜び)]
+      - [Isa ᛁ (停止), Hagalaz ᚺ (試練), Tiwaz ᛏ (勇気)]
+    image_prompt_file: prompts/image_rune.md           # M2で作成
+
+  moon:
+    jp: 月相占い
+    en: Moon Phase Reading
+    visual_strength: 高           # 夜空・月の満ち欠けが美しい
+    use_case: "深夜帯・フクロウと相性◎"
+    choice_format: "A/B/C 3つの月相 (新月/上弦/満月、または満月/欠け月/三日月)"
+    sample_choice_sets:
+      - [新月 (始まり), 上弦の月 (成長), 満月 (達成)]
+      - [満月 (完了), 下弦の月 (手放し), 三日月 (再出発)]
+    image_prompt_file: prompts/image_moon.md           # M2で作成
+
+  scroll:
+    jp: 古文書 / 羊皮紙
+    en: Ancient Scrolls
+    visual_strength: 中
+    use_case: "知恵系・フクロウと相性◎"
+    choice_format: "A/B/C 3つの巻物 or 古ぼけた紙片"
+    sample_choice_sets:
+      - [赤い印章, 銀の印章, 金の印章]
+    image_prompt_file: prompts/image_scroll.md         # M2で作成
+
+  herb:
+    jp: ハーブ占い
+    en: Herbalism
+    visual_strength: 高           # ドライハーブの色合い・質感が良い
+    use_case: "癒し系・ハリネズミ/うさぎと相性◎"
+    choice_format: "A/B/C 3束のドライハーブ (色や香りで性格分け)"
+    sample_choice_sets:
+      - [ラベンダー (癒し・安眠), ローズマリー (記憶・集中), カモミール (穏やかさ)]
+      - [セージ (浄化), タイム (勇気), ペパーミント (リフレッシュ)]
+    image_prompt_file: prompts/image_herb.md           # M2で作成
+
+  flower:
+    jp: 花占い
+    en: Floromancy
+    visual_strength: 高
+    use_case: "恋愛・対人テーマ。うさぎと相性◎"
+    choice_format: "A/B/C 3輪の花"
+    sample_choice_sets:
+      - [赤いバラ (情熱の愛), 白い百合 (純粋), 黄色いひまわり (元気な絆)]
+    image_prompt_file: prompts/image_flower.md         # M2で作成
+
+  nut:
+    jp: 木の実占い
+    en: Nut Divination
+    visual_strength: 中
+    use_case: "ハリネズミの隠れ専売。秋・実りテーマ"
+    choice_format: "A/B/C 3種の木の実"
+    sample_choice_sets:
+      - [どんぐり (堅実な成長), 松ぼっくり (拡大), 栗 (収穫の時)]
+    image_prompt_file: prompts/image_nut.md            # M2で作成
+
+  omikuji:
+    jp: おみくじ / お守り
+    en: Omikuji / Amulet
+    visual_strength: 中
+    use_case: "和風・親しみやすい。柴犬と相性◎"
+    choice_format: "A/B/C 3枚のおみくじ封 or 3つのお守り袋"
+    sample_choice_sets:
+      - [大吉のおみくじ, 中吉のおみくじ, 小吉のおみくじ]   # ※「結果を断定」しない読み方を心がけること
+      - [赤いお守り (恋愛), 青いお守り (仕事), 金のお守り (金運)]
+    image_prompt_file: prompts/image_omikuji.md        # M2で作成
+    note: |
+      おみくじは「大吉=絶対幸運」のような断定NG (景表法)。
+      「大吉が出た人は前向きに動ける流れがありそう」のように緩衝句を必ず。
+
+# === 動物 × ツールの相性マトリクス ===
+# 各動物の compatible_tools は cast.yaml で定義済。
+# クロスオーバー (cat × candle, fox × tarot, hedgehog × power_stone) は
+# 視聴者の意外性を生むので月1〜2回入れると新鮮味が出る。
+
+# === ツール選定指針 ===
+guideline:
+  - "1動画 = 1ツール (混ぜない)。視聴者の認知負荷を下げる"
+  - "ピン留めコメントで結果を開示する以上、ツールには 3つの明確に異なる選択肢が必須"
+  - "視覚的に映える (キャンドルの炎・ストーンの輝き・カードの裏面) ものを優先"
+  - "新ツール導入時は、まず黒猫で試す → ヒットしたら他キャストへ展開"
+  - "テキスト主体 (数字占い・姓名判断) は本アカウントの『視覚で楽しむ』方針に合わないため除外"
