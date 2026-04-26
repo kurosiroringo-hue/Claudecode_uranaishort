@@ -9,28 +9,28 @@
 assets/tarot_deck/
 ├── README.md              ← このファイル
 ├── major/                 ← 動画用 (中解像度・JPEG/PNG・約1MB以下)
-│   ├── 00_fool.png
-│   ├── 01_magician.png
-│   ├── 02_high_priestess.png
-│   ├── 03_empress.png
-│   ├── 04_emperor.png
-│   ├── 05_hierophant.png
-│   ├── 06_lovers.png
-│   ├── 07_chariot.png
-│   ├── 08_strength.png
-│   ├── 09_hermit.png
-│   ├── 10_wheel_of_fortune.png
-│   ├── 11_justice.png
-│   ├── 12_hanged_man.png
-│   ├── 13_death.png
-│   ├── 14_temperance.png
-│   ├── 15_devil.png
-│   ├── 16_tower.png
-│   ├── 17_star.png
-│   ├── 18_moon.png
-│   ├── 19_sun.png
-│   ├── 20_judgement.png
-│   └── 21_world.png
+│   ├── 00_fool.jpg
+│   ├── 01_magician.jpg
+│   ├── 02_high_priestess.jpg
+│   ├── 03_empress.jpg
+│   ├── 04_emperor.jpg
+│   ├── 05_hierophant.jpg
+│   ├── 06_lovers.jpg
+│   ├── 07_chariot.jpg
+│   ├── 08_strength.jpg
+│   ├── 09_hermit.jpg
+│   ├── 10_wheel_of_fortune.jpg
+│   ├── 11_justice.jpg
+│   ├── 12_hanged_man.jpg
+│   ├── 13_death.jpg
+│   ├── 14_temperance.jpg
+│   ├── 15_devil.jpg
+│   ├── 16_tower.jpg
+│   ├── 17_star.jpg
+│   ├── 18_moon.jpg
+│   ├── 19_sun.jpg
+│   ├── 20_judgement.jpg
+│   └── 21_world.jpg
 └── major_hires/           ← グッズ用 (高解像度・PNG・印刷300dpi対応)
     ├── 00_fool@4x.png
     └── ...
@@ -42,7 +42,7 @@ assets/tarot_deck/
 
 - ID は2桁ゼロ埋め (00〜21)
 - 英名は半角小文字、スペースは `_` で区切り
-- 拡張子は基本 `.png` (透過なしならJPEGも可)
+- 拡張子は基本 `.jpg` (透過なしならJPEGも可)
 
 `config/tarot_deck.yaml` の各カードの `id` と `en` フィールドが命名に対応する。
 
@@ -51,8 +51,8 @@ assets/tarot_deck/
 | 項目 | 推奨値 |
 |---|---|
 | 解像度 | **1024×1536** (9:16縦)、または1500×2250 (3:2 タロット標準比) |
-| 形式 | PNG (透過不要なら JPEG quality 90+ も可) |
-| ファイルサイズ | 1MB以下を推奨 (動画パイプラインの読み込み速度) |
+| 形式 | **JPEG (.jpg)** quality 90 推奨。GitHub Web の25MB制限を確実に下回るため |
+| ファイルサイズ | 1〜3MB目安 (動画パイプラインの読み込み速度) |
 | アスペクト比 | 縦長。動画表示時は中央配置で上下に余白 (背景は黒猫の世界観カット等で埋める) |
 
 ## カード仕様 (グッズ用 `major_hires/`)
@@ -96,7 +96,7 @@ assets/tarot_deck/
 - id: 18
   en: The Moon
   jp: 月
-  image_file: assets/tarot_deck/major/18_moon.png
+  image_file: assets/tarot_deck/major/18_moon.jpg
   cat_featured: black_cat
   ...
 ```

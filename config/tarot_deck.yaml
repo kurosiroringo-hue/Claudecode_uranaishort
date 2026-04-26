@@ -1,7 +1,8 @@
 # タロット 大アルカナ22枚 メタデータ
 #
 # 動画素材として使うオリジナル22枚カードは assets/tarot_deck/major/ に配置。
-# ファイル命名は {id_2桁}_{en_snake_case}.png (例: 18_moon.png)。
+# ファイル命名は {id_2桁}_{en_snake_case}.jpg (例: 18_moon.jpg)。
+# 高解像度のグッズ用は major_hires/ に PNG で保管。
 # 詳細は assets/tarot_deck/README.md 参照。
 #
 # cat_featured: そのカードに描かれている猫種 (動画台本でキャラの自然な
@@ -13,7 +14,7 @@ major:
   - id: 0
     en: The Fool
     jp: 愚者
-    image_file: assets/tarot_deck/major/00_fool.png
+    image_file: assets/tarot_deck/major/00_fool.jpg
     image_file_hires: assets/tarot_deck/major_hires/00_fool@4x.png
     cat_featured: brown_tabby            # 茶トラ (旅人風)
     visual_en: "a youthful figure stepping off a cliff edge with a small dog at heels, holding a white rose, sun behind"
@@ -25,7 +26,7 @@ major:
   - id: 1
     en: The Magician
     jp: 魔術師
-    image_file: assets/tarot_deck/major/01_magician.png
+    image_file: assets/tarot_deck/major/01_magician.jpg
     image_file_hires: assets/tarot_deck/major_hires/01_magician@4x.png
     cat_featured: TBD
     visual_en: "a robed figure with one hand pointing up to the sky and one to the earth, infinity symbol overhead, four suit symbols on the table"
@@ -36,7 +37,7 @@ major:
   - id: 2
     en: The High Priestess
     jp: 女教皇
-    image_file: assets/tarot_deck/major/02_high_priestess.png
+    image_file: assets/tarot_deck/major/02_high_priestess.jpg
     image_file_hires: assets/tarot_deck/major_hires/02_high_priestess@4x.png
     cat_featured: TBD
     visual_en: "a serene robed priestess seated between two pillars, crescent moon at feet, a scroll partially hidden"
@@ -47,7 +48,7 @@ major:
   - id: 3
     en: The Empress
     jp: 女帝
-    image_file: assets/tarot_deck/major/03_empress.png
+    image_file: assets/tarot_deck/major/03_empress.jpg
     image_file_hires: assets/tarot_deck/major_hires/03_empress@4x.png
     cat_featured: TBD
     visual_en: "a regal woman crowned with stars, seated in a lush garden of wheat, a heart-shaped shield with venus symbol"
@@ -58,7 +59,7 @@ major:
   - id: 4
     en: The Emperor
     jp: 皇帝
-    image_file: assets/tarot_deck/major/04_emperor.png
+    image_file: assets/tarot_deck/major/04_emperor.jpg
     image_file_hires: assets/tarot_deck/major_hires/04_emperor@4x.png
     cat_featured: TBD
     visual_en: "an authoritative ruler on a stone throne with ram-head decorations, mountains in background, scepter in hand"
@@ -69,7 +70,7 @@ major:
   - id: 5
     en: The Hierophant
     jp: 教皇
-    image_file: assets/tarot_deck/major/05_hierophant.png
+    image_file: assets/tarot_deck/major/05_hierophant.jpg
     image_file_hires: assets/tarot_deck/major_hires/05_hierophant@4x.png
     cat_featured: TBD
     visual_en: "a religious figure on a throne flanked by two pillars, hand raised in blessing, two acolytes kneeling"
@@ -80,7 +81,7 @@ major:
   - id: 6
     en: The Lovers
     jp: 恋人
-    image_file: assets/tarot_deck/major/06_lovers.png
+    image_file: assets/tarot_deck/major/06_lovers.jpg
     image_file_hires: assets/tarot_deck/major_hires/06_lovers@4x.png
     cat_featured: black_and_white_cat    # 黒猫+白猫が寄り添う
     visual_en: "a man and woman beneath a winged angel, sun above, a tree of life and a tree of knowledge behind them"
@@ -92,7 +93,7 @@ major:
   - id: 7
     en: The Chariot
     jp: 戦車
-    image_file: assets/tarot_deck/major/07_chariot.png
+    image_file: assets/tarot_deck/major/07_chariot.jpg
     image_file_hires: assets/tarot_deck/major_hires/07_chariot@4x.png
     cat_featured: TBD
     visual_en: "a victorious figure in armor riding a chariot pulled by two sphinxes, starry canopy overhead"
@@ -103,7 +104,7 @@ major:
   - id: 8
     en: Strength
     jp: 力
-    image_file: assets/tarot_deck/major/08_strength.png
+    image_file: assets/tarot_deck/major/08_strength.jpg
     image_file_hires: assets/tarot_deck/major_hires/08_strength@4x.png
     cat_featured: TBD
     visual_en: "a gentle woman calmly closing the jaws of a lion, infinity symbol over her head, flowers in her hair"
@@ -114,7 +115,7 @@ major:
   - id: 9
     en: The Hermit
     jp: 隠者
-    image_file: assets/tarot_deck/major/09_hermit.png
+    image_file: assets/tarot_deck/major/09_hermit.jpg
     image_file_hires: assets/tarot_deck/major_hires/09_hermit@4x.png
     cat_featured: TBD
     visual_en: "an old robed figure on a snowy mountain peak holding a glowing lantern, staff in the other hand"
@@ -125,7 +126,7 @@ major:
   - id: 10
     en: Wheel of Fortune
     jp: 運命の輪
-    image_file: assets/tarot_deck/major/10_wheel_of_fortune.png
+    image_file: assets/tarot_deck/major/10_wheel_of_fortune.jpg
     image_file_hires: assets/tarot_deck/major_hires/10_wheel_of_fortune@4x.png
     cat_featured: TBD
     visual_en: "a great wheel in the sky with figures at four corners reading books, sphinx atop the wheel"
@@ -136,7 +137,7 @@ major:
   - id: 11
     en: Justice
     jp: 正義
-    image_file: assets/tarot_deck/major/11_justice.png
+    image_file: assets/tarot_deck/major/11_justice.jpg
     image_file_hires: assets/tarot_deck/major_hires/11_justice@4x.png
     cat_featured: TBD
     visual_en: "a crowned figure on a throne holding upright sword and balanced scales, between two pillars"
@@ -147,7 +148,7 @@ major:
   - id: 12
     en: The Hanged Man
     jp: 吊るされた男
-    image_file: assets/tarot_deck/major/12_hanged_man.png
+    image_file: assets/tarot_deck/major/12_hanged_man.jpg
     image_file_hires: assets/tarot_deck/major_hires/12_hanged_man@4x.png
     cat_featured: TBD
     visual_en: "a figure suspended upside-down from a T-shaped tree by one foot, halo of light around the head"
@@ -158,7 +159,7 @@ major:
   - id: 13
     en: Death
     jp: 死神
-    image_file: assets/tarot_deck/major/13_death.png
+    image_file: assets/tarot_deck/major/13_death.jpg
     image_file_hires: assets/tarot_deck/major_hires/13_death@4x.png
     cat_featured: TBD
     visual_en: "a skeletal knight on a white horse carrying a black flag with a white rose, distant sun"
@@ -169,7 +170,7 @@ major:
   - id: 14
     en: Temperance
     jp: 節制
-    image_file: assets/tarot_deck/major/14_temperance.png
+    image_file: assets/tarot_deck/major/14_temperance.jpg
     image_file_hires: assets/tarot_deck/major_hires/14_temperance@4x.png
     cat_featured: TBD
     visual_en: "a winged angel pouring water between two cups, one foot in water and one on land"
@@ -180,7 +181,7 @@ major:
   - id: 15
     en: The Devil
     jp: 悪魔
-    image_file: assets/tarot_deck/major/15_devil.png
+    image_file: assets/tarot_deck/major/15_devil.jpg
     image_file_hires: assets/tarot_deck/major_hires/15_devil@4x.png
     cat_featured: TBD
     visual_en: "a horned figure on a pedestal with two chained human figures, bat-like wings, inverted pentagram"
@@ -191,7 +192,7 @@ major:
   - id: 16
     en: The Tower
     jp: 塔
-    image_file: assets/tarot_deck/major/16_tower.png
+    image_file: assets/tarot_deck/major/16_tower.jpg
     image_file_hires: assets/tarot_deck/major_hires/16_tower@4x.png
     cat_featured: TBD
     visual_en: "a tall tower struck by lightning, crown falling, two figures plummeting against a stormy sky"
@@ -202,7 +203,7 @@ major:
   - id: 17
     en: The Star
     jp: 星
-    image_file: assets/tarot_deck/major/17_star.png
+    image_file: assets/tarot_deck/major/17_star.jpg
     image_file_hires: assets/tarot_deck/major_hires/17_star@4x.png
     cat_featured: white_cat               # 白猫が星を見上げる
     visual_en: "a serene woman pouring water from two pitchers under a sky of seven small stars and one large star"
@@ -214,7 +215,7 @@ major:
   - id: 18
     en: The Moon
     jp: 月
-    image_file: assets/tarot_deck/major/18_moon.png
+    image_file: assets/tarot_deck/major/18_moon.jpg
     image_file_hires: assets/tarot_deck/major_hires/18_moon@4x.png
     cat_featured: black_cat               # 黒猫が三日月の下に座る
     visual_en: "a moon with a face above, dog and wolf howling at it, a crayfish emerging from water, two distant towers"
@@ -226,7 +227,7 @@ major:
   - id: 19
     en: The Sun
     jp: 太陽
-    image_file: assets/tarot_deck/major/19_sun.png
+    image_file: assets/tarot_deck/major/19_sun.jpg
     image_file_hires: assets/tarot_deck/major_hires/19_sun@4x.png
     cat_featured: TBD
     visual_en: "a radiant sun above, a child on a white horse holding a banner, sunflowers in background"
@@ -237,7 +238,7 @@ major:
   - id: 20
     en: Judgement
     jp: 審判
-    image_file: assets/tarot_deck/major/20_judgement.png
+    image_file: assets/tarot_deck/major/20_judgement.jpg
     image_file_hires: assets/tarot_deck/major_hires/20_judgement@4x.png
     cat_featured: TBD
     visual_en: "an angel blowing a trumpet from clouds while figures rise from coffins below, mountains in background"
@@ -248,7 +249,7 @@ major:
   - id: 21
     en: The World
     jp: 世界
-    image_file: assets/tarot_deck/major/21_world.png
+    image_file: assets/tarot_deck/major/21_world.jpg
     image_file_hires: assets/tarot_deck/major_hires/21_world@4x.png
     cat_featured: TBD
     visual_en: "a dancing figure inside a wreath, four creatures (lion, eagle, bull, angel) at the corners"
