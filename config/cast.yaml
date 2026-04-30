@@ -6,9 +6,9 @@
 lead: black_cat                  # 黒猫がアカウントの顔。プロフ画像/サムネ統一感の中心
 posting_share:                   # 月間投稿本数の目安配分
   # 猫族 (タロット担当・主軸 70%)
-  black_cat: 0.30                # 主役・最頻出
-  calico_cat: 0.20               # 三毛猫・金運/仕事担当
-  siamese: 0.20                  # シャム猫・決断/キャリア担当
+  black_cat: 0.30                # 黒猫・恋愛 (本音/運命) 担当・主役
+  white_cat: 0.20                # 白猫・恋愛 (癒し/浄化/結婚) 担当
+  calico_cat: 0.20               # 三毛猫・金運/仕事/キャリア決断 担当 (主砲)
   # ゲスト動物 (各々の専門ツール・30%)
   rabbit: 0.10                   # うさぎ・パワーストーン
   owl: 0.10                      # フクロウ・星読み
@@ -32,59 +32,65 @@ cats:
     en: Black Cat
     role: lead
     tool: tarot
-    themes: [恋愛, 片思い, 復縁, あの人の本音, 運命, 結婚のタイミング]
+    themes: [恋愛の本音, 片思いの行方, 復縁の可能性, あの人の気持ち, 運命の人, 二人の今後]
+    theme_genre: 恋愛 (本音・運命系)
     signature_sound: にゃおー
     sound_file: assets/se/cat_meow_black.wav
     sound_volume: 1.4
     sound_quality: "低めで神秘的・余韻長め"
     accent_color: "#C8A24A"       # antique gold
+    background_palette: "dark navy + antique gold (mystery)"
     persona_voice: "落ち着いた神秘的・少し気だるげ"
     voicevox_speaker_id: 16       # 九州そら (cool)
     image_prompt_file: prompts/image_cat_characters.md  # black section
     posting_time_recommend: "夜21:30 (主力CV枠)"
-    tagline: "気まぐれな黒猫が、あなたの恋の一枚を引きます"
+    tagline: "気まぐれな黒猫が、あなたの恋の本音を引き出します"
     hashtag: "#黒猫占い"
-    asset_status: "8カット既存・即運用可"
+    asset_status: "8カット既存・Kling動画10秒成功"
+
+  white_cat:
+    jp: 白猫
+    en: White Cat
+    role: support_cat
+    tool: tarot
+    themes: [癒し恋愛, 自己肯定, 失恋からの回復, 結婚のタイミング, 縁結び, 心の浄化]
+    theme_genre: 恋愛 (癒し・浄化系)
+    signature_sound: みゃう
+    sound_file: assets/se/cat_meow_white.wav
+    sound_volume: 1.1
+    sound_quality: "高く透明・優しく短い"
+    accent_color: "#E9D8E4"       # soft pink-cream
+    background_palette: "soft pink + cream + lavender (healing)"
+    persona_voice: "やわらかく天使のよう・包み込むトーン"
+    voicevox_speaker_id: 14       # 冥鳴ひまり (やわらか)
+    image_prompt_file: prompts/image_cat_characters.md  # white section
+    posting_time_recommend: "朝7:30 (癒し枠) または 夜21:30 (恋愛サブ枠)"
+    tagline: "やさしい白猫が、あなたの恋を癒す一枚を選びます"
+    hashtag: "#白猫占い"
+    asset_status: "1カット既存 (hookのみ)・setup/meowを生成必要"
+    cultural_note: "純潔・癒し・天使の象徴。失恋層・自己肯定層の支持を狙う"
 
   calico_cat:
     jp: 三毛猫
     en: Calico Cat
-    role: support_cat
+    role: support_cat_main_revenue   # M4¥300K commit の主砲
     tool: tarot
-    themes: [金運, 仕事運, 幸運, 副業, 商売繁盛, 今週の運勢]
+    themes: [金運, 仕事運, 幸運, 副業, 商売繁盛, キャリアの決断, 転職の時期, 進路の選択]
+    theme_genre: 金運・仕事 (キャリア決断含む拡張)
     signature_sound: にゃ!
     sound_file: assets/se/cat_meow_calico.wav
     sound_volume: 1.3
     sound_quality: "短く明るい・元気"
     accent_color: "#D9883B"       # warm orange-gold
+    background_palette: "gold + amber (招福・warm)"
     persona_voice: "明るく前向き・少しお茶目"
     voicevox_speaker_id: 8        # 春日部つむぎ (元気)
     image_prompt_file: prompts/image_cat_characters.md  # calico section
-    posting_time_recommend: "夜21:30 (金運系) または 朝7:30 (今日の幸運)"
-    tagline: "招き猫の三毛が、金運と幸運の一枚を選びます"
+    posting_time_recommend: "夜21:30 (金運系・主力CV枠) または 昼12:00 (キャリア層)"
+    tagline: "招き猫の三毛が、金運と新しい一歩の一枚を選びます"
     hashtag: "#三毛猫占い"
-    asset_status: "未生成・GPT Image 1で4カット作成必要"
-    cultural_note: "招き猫の代表色 = 金運の象徴"
-
-  siamese:
-    jp: シャム猫
-    en: Siamese Cat
-    role: support_cat
-    tool: tarot
-    themes: [決断, キャリア, 転職, 進路, 選択, 人生の岐路]
-    signature_sound: みゃおうっ
-    sound_file: assets/se/cat_meow_siamese.wav
-    sound_volume: 1.3
-    sound_quality: "鋭く知的・短く言い切る"
-    accent_color: "#3A3A6E"       # deep blue-violet
-    persona_voice: "知的で凛とした・少し冷たい品位"
-    voicevox_speaker_id: 47       # ナースロボ_タイプT (知的)
-    image_prompt_file: prompts/image_cat_characters.md  # siamese section
-    posting_time_recommend: "夜23:00 (深い決断テーマ)"
-    tagline: "賢きシャムが、あなたの選ぶべき道を示します"
-    hashtag: "#シャム猫占い"
-    asset_status: "未生成・GPT Image 1で4カット作成必要"
-    cultural_note: "王室で愛された賢明な猫種・神秘性と知性の象徴"
+    asset_status: "1カット既存 (hookのみ)・setup/meowを生成必要"
+    cultural_note: "招き猫の代表色 = 金運の象徴。A8電話占い (キャリア・お金相談) の主動線"
 
 # === ゲスト動物キャスト (専門ツール・30%) ===
 guests:
@@ -156,12 +162,17 @@ guests:
 
 # === 将来追加候補 ===
 roadmap:
-  white_cat:
-    jp: 白猫
+  siamese:
+    jp: シャム猫
     tool: tarot
-    themes: [癒し, 浄化, 手放し]
-    signature_sound: みゃう
-    note: "Stage 2 で追加検討。三毛/シャムが軌道に乗ってから"
+    themes: [深い決断, 内面の知性, 哲学的選択]
+    signature_sound: みゃおうっ
+    accent_color: "#3A3A6E"       # deep blue-violet
+    note: |
+      議題6で白猫に主軸枠を譲り、roadmap に移動。
+      フォロワー1万到達後の「シャム猫デビュー」特別感ある投入を検討。
+      担当テーマは「キャリア決断」を三毛猫と差別化するため、
+      「人生の哲学的選択」「深い内面探求」など、より思索的な領域に設定。
   brown_tabby:
     jp: 茶トラ
     tool: tarot
@@ -177,12 +188,12 @@ roadmap:
     tool: omikuji
     note: "和風枠としてフォロワー安定後に"
 
-# === 投稿ローテーション例 (1週間 / Path B 仕様) ===
+# === 投稿ローテーション例 (1週間 / 黒・三毛・白 構成) ===
 posting_rotation_example:
   monday:
     evening_2130: { cast: black_cat, theme: "片思いの行方" }
   tuesday:
-    morning_730: { cast: rabbit, theme: "今週の直感メッセージ" }
+    morning_730: { cast: white_cat, theme: "今週の心の癒し" }
   wednesday:
     evening_2130: { cast: calico_cat, theme: "金運の流れ" }
   thursday:
@@ -190,10 +201,10 @@ posting_rotation_example:
   friday:
     night_2300: { cast: owl, theme: "今週手放すべきもの" }
   saturday:
-    night_2300: { cast: siamese, theme: "今あなたが選ぶべき道" }
+    evening_2130: { cast: white_cat, theme: "結婚のタイミング" }
   sunday:
-    morning_730: { cast: black_cat, theme: "今日のメッセージ" }
-# 猫族4本 / ゲスト3本 = 月間配分70%/30%と整合
+    morning_730: { cast: calico_cat, theme: "今週の幸運" }
+# 黒猫2 / 白猫2 / 三毛猫2 / フクロウ1 = 月間配分70%/30%と整合
 
 # === ブランディング ===
 account_branding:
@@ -203,12 +214,13 @@ account_branding:
     - "@neko_uranai_kan"        # 「猫占い館」寄り
     - "@mofu_uranai"
   bio_template: |
-    🖤🧡💜 占い動物園
-    主は黒猫・三毛・シャムのタロット師たち
+    🖤🤍🧡 占い動物園・主は猫族の家
+    黒猫=恋愛/白猫=癒し/三毛猫=金運
     ときどきうさぎ🐇 フクロウ🦉もゲスト鑑定
     結果はピン留めコメント👇
     ※エンタメ目的
   profile_image_strategy:
     - 主役の黒猫を中央
-    - 周囲に三毛・シャムを配置 (三猫構図)
+    - 左右に白猫・三毛猫を配置 (三猫構図)
+    - 各猫の専属パレット (navy / pink / gold) で世界観差別化
     - 他動物は bio や 動画で示唆

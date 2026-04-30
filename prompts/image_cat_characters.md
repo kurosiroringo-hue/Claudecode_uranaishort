@@ -102,28 +102,31 @@ Vertical 1024x1536 close-up.
 
 ---
 
-## 3. 💜 シャム猫 (siamese) — 新規生成
+## 3. 🤍 白猫 (white_cat) — 議題6でシャム猫から差し替え
 
-知性派・神秘的・少しエキゾチック。深い青の瞳が特徴。
+癒し・天使的・優しい。純粋で包み込むような印象。
+背景パレットは黒猫(navy)・三毛猫(gold)とは違う **soft pink + cream + lavender** で世界観を差別化。
 
 ### 3-1. Hook カット (00_hook.png)
 
 ```
-A dramatic close-up portrait of a Siamese cat as a fortune teller. 
-Classic Siamese coloring: pale cream body fur with darker seal-brown 
-points on face mask, ears, and visible paws. Striking deep blue 
-almond-shaped eyes locked onto the camera. Sharp intelligent expression, 
-mouth slightly parted.
+A serene close-up portrait of a pure white cat as a healing fortune 
+teller. Fluffy pure white fur with subtle pink undertones near the ears 
+and nose. Bright golden-yellow eyes looking calmly at the camera with 
+gentle warmth. Mouth gently closed in a soft, peaceful expression.
 
-The cat wears a deep blue-violet hooded cloak with silver star 
-embroidery. A polished silver pendant with a small blue stone on chest.
+The cat wears a soft pink-cream hooded cape with delicate gold star and 
+moon embroidery. A small star-shaped pendant with a pearl center on chest.
 
-Setting: same dim mystical fortune-telling room as the existing black 
-cat character — purple velvet table edge visible, candle on right, 
-crystal ball on left, dim bookshelf in background.
+Setting: a dreamy mystical fortune-telling alcove. Soft pink and cream 
+tones dominate. Dried flowers (roses, lavender, baby's breath) in muted 
+purple and rose tones surround the table. A small crystal cluster glows 
+gently. A teacup with herbal tea sits on the table. Candles emit warm 
+soft light. Old books in faded pastel covers in shelves behind.
 
-Lighting: cool blue moonlight tone mixed with warm candlelight, more 
-dramatic chiaroscuro than the calico.
+Lighting: warm soft candlelight, gentle bokeh, ethereal and healing 
+atmosphere. Less dark/dramatic than the black cat, more bright/gentle 
+than the calico.
 
 Tight close-up framing, vertical 1024x1536, head fills 70% of frame.
 ```
@@ -131,33 +134,37 @@ Tight close-up framing, vertical 1024x1536, head fills 70% of frame.
 ### 3-2. Setup カット (01_setup.png)
 
 ```
-A medium shot of a Siamese cat fortune teller seated behind a purple 
-velvet table with three face-down tarot cards arranged in front. Cream 
-body with seal-brown points clearly visible. The cat wears a deep 
-blue-violet cloak with silver embroidery. The cat watches the viewer 
-with its piercing blue eyes, paws resting calmly near the cards.
+A medium shot of a pure white cat fortune teller seated behind a beige 
+or cream-colored zodiac-patterned cloth with three face-down tarot 
+cards (light cream backs with subtle gold star pattern) arranged in 
+front. Pure white fluffy fur clearly visible. The cat wears a soft 
+pink-cream cape with gold embroidery. The cat gazes at the viewer with 
+golden eyes, paws resting calmly on either side of the cards.
 
-The three cards have plain dark backs with subtle gold star pattern, 
-no text, no symbols. Background includes a crystal ball on left, 
-candle on right, dim bookshelf.
+The three cards stay completely still and unchanged. The setting 
+matches the white cat hook scene — dried flowers, soft candle, herbal 
+teacup, crystal cluster, faded pastel books. Soft pink and cream 
+palette throughout.
 
-Vertical 9:16, ornamental composition matching the existing black cat 
-scene exactly.
+Vertical 9:16. The composition is calm and inviting, like a healing 
+salon, contrasting with the dramatic mystery of the black cat scene.
 ```
 
 ### 3-3. Meow カット (03_meow.png)
 
 ```
-A dramatic close-up of a Siamese cat with mouth open in a sharp short 
-meow. Cream body, dark seal-brown mask and ears. The mouth is open in 
-a precise vocal shape, narrower than a casual meow — focused and 
-intentional. Deep blue eyes narrowed and intense. Whiskers held forward.
+A close-up of a pure white cat opening its mouth gently for a soft 
+small meow — not dramatic, just a small "o" shape, brief and tender. 
+Eyes narrow slightly with the gentle vocalization, half-closed in a 
+peaceful expression. Whiskers relaxed.
 
-The cat wears the deep blue-violet cloak with silver star embroidery. 
-The silver pendant catches a sharp glint.
+The cat wears the soft pink-cream cape with gold embroidery. The 
+star-shaped pendant catches a soft warm glint.
 
-Background: same dim mystical fortune-telling room, candle flame 
-slightly stronger.
+Background: the same dreamy healing alcove with dried flowers and warm 
+candlelight. Soft pink and cream tones.
+
+Mood: gentle, peaceful, like a lullaby. Not loud or assertive.
 
 Vertical 1024x1536 close-up.
 ```
@@ -174,13 +181,13 @@ Vertical 1024x1536 close-up.
 2. 既存の `assets/overlays/style_ref.png` を reference として添付
 3. 上記 Hook → Setup → Meow の順で3枚生成
 4. Choose カットは黒猫の既存ファイルから流用 (再生成不要)
-5. 4枚揃ったら `output/2026-04-26/{calico|siamese}_001/images/` に配置:
+5. 4枚揃ったら `output/2026-04-26/{calico|white_cat}_001/images/` に配置:
    - `00_hook.png`
    - `01_setup.png`
    - `02_choose.png` (黒猫から複製)
    - `03_meow.png`
 
-合計新規生成 = **6枚** (三毛3 + シャム3)。
+合計新規生成 = **6枚** (三毛3 + 白猫3) ※hookは社長が既に1枚ずつ生成済のため実質setup+meow計4枚で済む。
 コスト = $0.07 × 6 = **$0.42 ≒ ¥63**。1度の投資で各猫30本以上の動画素材になる。
 
 ---
@@ -190,7 +197,7 @@ Vertical 1024x1536 close-up.
 - [ ] 解像度 1024×1536 (= 9:16)
 - [ ] 背景の世界観 (紫テーブル/書架/水晶玉/キャンドル) が黒猫カットと一致している
 - [ ] 三毛猫: 白・橙・黒のパッチが明確、招き猫らしさあり
-- [ ] シャム猫: クリーム体色 + ダークポイント、青い瞳が印象的
+- [ ] 白猫: ピュアホワイト + ふわふわ、金色の瞳、ピンク/クリーム背景
 - [ ] マントの色が各キャストの accent_color (cast.yaml) と整合
 - [ ] 上15%・下15%が overlap 想定で空いている
 - [ ] 期待していない文字 (英字ロゴ、ランダム文字) が映り込んでいない
