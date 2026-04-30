@@ -10,11 +10,11 @@ posting_share:                   # 月間投稿本数の目安配分
   white_cat: 0.20                # 白猫・恋愛 (癒し/浄化/結婚) 担当
   calico_cat: 0.20               # 三毛猫・金運/仕事/キャリア決断 担当 (主砲)
   # ゲスト動物 (各々の専門ツール・30%)
-  rabbit: 0.10                   # うさぎ・パワーストーン
-  owl: 0.10                      # フクロウ・星読み
-  fox: 0.05                      # 狐・アンティーク鍵
-  hedgehog: 0.03                 # ハリネズミ・ハーブ
-  # 残り 0.02 は新ツール実験枠
+  rabbit: 0.10                   # うさぎ・パワーストーン (癒し)
+  owl: 0.10                      # フクロウ・星読み (深夜)
+  fox: 0.05                      # 狐・アンティーク鍵 (転機)
+  shiba: 0.05                    # 柴犬・おみくじ (ライト系・親しみ枠)
+  # 30%消化、新ツール実験枠なし
 
 # === 共通スタイル ===
 shared:
@@ -144,21 +144,29 @@ guests:
     asset_status: "3カット既存・追加生成推奨"
     guest_appearance_share: 0.05
 
-  hedgehog:
-    jp: ハリネズミ占い師
-    en: Hedgehog Diviner
-    tool: herb
-    themes: [癒し, 小さな気付き, 朝のメッセージ]
-    signature_sound: フンッ
-    sound_file: assets/se/hedgehog_sniff.wav
-    sound_volume: 1.0
-    accent_color: "#9C7B5C"
-    persona_voice: "小さく優しい"
-    voicevox_speaker_id: 14
-    posting_time_recommend: "朝7:30"
-    hashtag: "#ハリネズミ占い"
-    asset_status: "未生成"
-    guest_appearance_share: 0.03
+  shiba:
+    jp: 柴犬占い師
+    en: Shiba Inu Diviner
+    tool: omikuji
+    themes: [今日の運勢, 対人運, 家族運, 友情, 親しみやすい運勢]
+    theme_genre: ライト系・庶民派 (親しみやすさ・対人)
+    signature_sound: ワン!
+    sound_file: assets/se/shiba_bark.wav
+    sound_volume: 1.4
+    sound_quality: "明るく短く、元気な一声"
+    accent_color: "#D9883B"        # shiba orange
+    background_palette: "warm cream + shiba orange + soft gold (親しみ・和風モダン)"
+    persona_voice: "明るく前向き・少し体育会系"
+    voicevox_speaker_id: 3
+    posting_time_recommend: "昼12:00 (ライト枠) または 朝7:30 (今日の運勢)"
+    hashtag: "#柴犬占い"
+    asset_status: "未生成 (GPT Image 1で要制作)"
+    guest_appearance_share: 0.05
+    cultural_note: |
+      Shiba Inu は世界レベルで認知度最高の犬種 (#shiba は数千万ヒット)。
+      猫族の「神秘・深い」トーンと対比的に「明るい・親しみやすい」トーン
+      を担当。占いコンテンツが重くなりすぎないバランサー役。海外リーチ
+      にも強い。Doge meme 文化の波及効果も期待可能。
 
 # === 将来追加候補 ===
 roadmap:
@@ -183,12 +191,19 @@ roadmap:
     jp: カラス占い師
     tool: rune
     note: "深夜枠の補強として、フクロウとの差別化が確立してから"
-  shiba:
-    jp: 柴犬占い師
-    tool: omikuji
-    note: "和風枠としてフォロワー安定後に"
+  hedgehog:
+    jp: ハリネズミ占い師
+    tool: herb
+    signature_sound: フンッ
+    note: |
+      議題7で柴犬に枠を譲り roadmap に移動。検索ボリュームの低さが課題。
+      フォロワー1万到達後の「マイナーキャラ枠」として復活余地あり。
+  panda:
+    jp: パンダ占い師
+    tool: herb (笹/竹)
+    note: "Stage 3で世界展開時の海外リーチ強化候補"
 
-# === 投稿ローテーション例 (1週間 / 黒・三毛・白 構成) ===
+# === 投稿ローテーション例 (1週間 / 黒・白・三毛 + ゲスト) ===
 posting_rotation_example:
   monday:
     evening_2130: { cast: black_cat, theme: "片思いの行方" }
