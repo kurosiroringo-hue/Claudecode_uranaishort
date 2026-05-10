@@ -1,0 +1,36 @@
+; Default parameter set for GoldResearchEA
+; Drop into <MT5 data folder>/MQL5/Profiles/Tester/ or load via Strategy Tester "Load" button.
+;
+; NOTE: These are starting values for backtesting, NOT optimized live settings.
+;       Run the walk-forward protocol in docs/backtest_protocol.md before using.
+
+InpStrategy=0
+InpTimeframe=5
+
+InpEMA13_Fast=13
+InpEMA13_Slow=100
+InpEMA13_SlopeBars=10
+
+InpEMA20_Period=20
+InpEMA20_SlopeBars=5
+InpEMA20_UseHTF=false
+InpEMA20_HTF=16385
+InpEMA20_HTF_Period=50
+
+InpDonchianPeriod=20
+
+InpRiskPercent=0.5
+InpATR_Period=14
+InpATR_SL_Mult=1.5
+InpRR=1.5
+InpMaxDailyLossPct=3.0
+
+InpSessionFilter=true
+InpSessionStartUTC=8
+InpSessionEndUTC=21
+InpFridayClose=true
+InpFridayCloseHourUTC=20
+
+InpCooldownBars=3
+InpMagicNumber=20260510
+InpComment=GoldResearchEA

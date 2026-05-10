@@ -1,0 +1,26 @@
+# MetaTrader 5 build artifacts
+*.ex5
+*.ex4
+
+# Strategy Tester logs / cache
+tester/
+*.log
+*.opt
+*.fxt
+*.hst
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Local secrets (broker credentials etc — should never be committed)
+*.env
+secrets.*
+account.ini
+
+# Backtest result HTML if user wants to keep them out
+# tests/results/*.htm
