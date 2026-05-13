@@ -8,8 +8,8 @@
 //|  See docs/risk_disclaimer.md before any live use.                |
 //+------------------------------------------------------------------+
 #property copyright   "Gold Research EA (MIT)"
-#property version     "0.1"
-#property description "XAUUSD research EA — EMA13/EMA20 pullback + Donchian baseline"
+#property version     "0.2"
+#property description "XAUUSD research EA — EMA/SMA pullback + Donchian baseline"
 #property strict
 
 #include <Trade/Trade.mqh>
@@ -19,15 +19,26 @@
 #include "../Include/SignalEMA13Pullback.mqh"
 #include "../Include/SignalEMA20Pullback.mqh"
 #include "../Include/SignalDonchian.mqh"
+#include "../Include/SignalSMACross.mqh"
+#include "../Include/SignalEMA20Cross8Bar.mqh"
 
 //+------------------------------------------------------------------+
 //| Inputs                                                            |
 //+------------------------------------------------------------------+
 enum ENUM_STRATEGY
 {
-   EMA13_PULLBACK = 0,
-   EMA20_M10      = 1,
-   DONCHIAN_BREAK = 2
+   EMA13_PULLBACK   = 0,
+   EMA20_M10        = 1,
+   DONCHIAN_BREAK   = 2,
+   SMA_CROSS_M15    = 3,
+   EMA20_M15_8BAR   = 4
+};
+
+enum ENUM_STOP_MODE
+{
+   STOP_ATR   = 0,   // ATR(N) x InpATR_SL_Mult, TP = SL x InpRR
+   STOP_PIPS  = 1,   // Fixed pips (InpSL_Pips / InpTP_Pips)
+   STOP_SWING = 2    // Recent swing high/low (InpSwingLookback bars)
 };
 
 input group "=== Strategy ==="
@@ -49,11 +60,27 @@ input int    InpEMA20_HTF_Period = 50;
 input group "=== Donchian baseline ==="
 input int    InpDonchianPeriod   = 20;
 
+input group "=== SMA cross (M15) ==="
+input int    InpSMA_Fast         = 5;
+input int    InpSMA_Slow         = 20;
+
+input group "=== EMA20 cross + 8-bar (M15) ==="
+input int    InpEMA20Cross_Period       = 20;
+input int    InpEMA20Cross_Lookback     = 8;
+input double InpEMA20Cross_StrongClose  = 0.7;   // close in top X of bar range
+input double InpEMA20Cross_PinWickRatio = 2.0;   // pin-bar wick/body ratio
+
 input group "=== Risk management ==="
 input double InpRiskPercent      = 0.5;    // % of balance per trade
+input ENUM_STOP_MODE InpStopMode = STOP_ATR;
 input int    InpATR_Period       = 14;
 input double InpATR_SL_Mult      = 1.5;
-input double InpRR               = 1.5;    // TP = SL * RR
+input double InpRR               = 1.5;    // TP = SL * RR (ATR & PIPS & SWING modes)
+input double InpPipSize          = 0.1;    // XAUUSD: 1 pip = 0.1 (10 points @ digits=2)
+input double InpSL_Pips          = 25.0;   // STOP_PIPS mode
+input double InpTP_Pips          = 35.0;   // STOP_PIPS mode (ignored if InpRR>0)
+input bool   InpPips_UseRR       = false;  // STOP_PIPS: derive TP from SL_Pips * RR
+input int    InpSwingLookback    = 20;     // STOP_SWING: bars to scan for swing H/L
 input double InpMaxDailyLossPct  = 3.0;    // daily DD circuit breaker
 
 input group "=== Session ==="
@@ -71,13 +98,15 @@ input string InpComment          = "GoldResearchEA";
 //+------------------------------------------------------------------+
 //| Globals                                                           |
 //+------------------------------------------------------------------+
-CTrade               trade;
-CRiskManager         risk;
-CATRStops            atrStops;
-CSessionFilter       session;
-CSignalEMA13Pullback sigEMA13;
-CSignalEMA20Pullback sigEMA20;
-CSignalDonchian      sigDonchian;
+CTrade                  trade;
+CRiskManager            risk;
+CATRStops               atrStops;
+CSessionFilter          session;
+CSignalEMA13Pullback    sigEMA13;
+CSignalEMA20Pullback    sigEMA20;
+CSignalDonchian         sigDonchian;
+CSignalSMACross         sigSMA;
+CSignalEMA20Cross8Bar   sigEMA20Cross;
 
 ENUM_TIMEFRAMES g_tf;
 datetime        g_lastBarTime  = 0;
@@ -140,11 +169,57 @@ ENUM_SIGNAL_DIR DispatchSignal()
 {
    switch(InpStrategy)
    {
-      case EMA13_PULLBACK: return sigEMA13.CheckSignal();
-      case EMA20_M10:      return sigEMA20.CheckSignal();
-      case DONCHIAN_BREAK: return sigDonchian.CheckSignal();
+      case EMA13_PULLBACK:  return sigEMA13.CheckSignal();
+      case EMA20_M10:       return sigEMA20.CheckSignal();
+      case DONCHIAN_BREAK:  return sigDonchian.CheckSignal();
+      case SMA_CROSS_M15:   return sigSMA.CheckSignal();
+      case EMA20_M15_8BAR:  return sigEMA20Cross.CheckSignal();
    }
    return SIG_NONE;
+}
+
+//--- Compute SL/TP using the selected stop mode. Returns false on failure.
+bool ComputeStops(ENUM_SIGNAL_DIR dir, double entry, double &sl, double &tp)
+{
+   if(InpStopMode == STOP_ATR)
+   {
+      return (dir == SIG_LONG)
+                ? atrStops.LongStops(entry, InpATR_SL_Mult, InpRR, sl, tp)
+                : atrStops.ShortStops(entry, InpATR_SL_Mult, InpRR, sl, tp);
+   }
+   if(InpStopMode == STOP_PIPS)
+   {
+      double sl_dist = InpSL_Pips * InpPipSize;
+      double tp_dist = InpPips_UseRR ? sl_dist * InpRR : InpTP_Pips * InpPipSize;
+      if(sl_dist <= 0 || tp_dist <= 0) return false;
+      sl = (dir == SIG_LONG) ? (entry - sl_dist) : (entry + sl_dist);
+      tp = (dir == SIG_LONG) ? (entry + tp_dist) : (entry - tp_dist);
+      return true;
+   }
+   if(InpStopMode == STOP_SWING)
+   {
+      int idx_high = iHighest(_Symbol, g_tf, MODE_HIGH, InpSwingLookback, 1);
+      int idx_low  = iLowest (_Symbol, g_tf, MODE_LOW,  InpSwingLookback, 1);
+      if(idx_high < 0 || idx_low < 0) return false;
+      double swing_high = iHigh(_Symbol, g_tf, idx_high);
+      double swing_low  = iLow (_Symbol, g_tf, idx_low);
+      if(swing_high <= 0 || swing_low <= 0) return false;
+
+      if(dir == SIG_LONG)
+      {
+         sl = swing_low;
+         tp = swing_high;
+         if(sl >= entry || tp <= entry) return false;
+      }
+      else
+      {
+         sl = swing_high;
+         tp = swing_low;
+         if(sl <= entry || tp >= entry) return false;
+      }
+      return true;
+   }
+   return false;
 }
 
 //+------------------------------------------------------------------+
@@ -177,6 +252,14 @@ int OnInit()
       case DONCHIAN_BREAK:
          sigDonchian.Init(_Symbol, g_tf, InpDonchianPeriod);
          break;
+      case SMA_CROSS_M15:
+         ok = sigSMA.Init(_Symbol, g_tf, InpSMA_Fast, InpSMA_Slow);
+         break;
+      case EMA20_M15_8BAR:
+         ok = sigEMA20Cross.Init(_Symbol, g_tf,
+                                 InpEMA20Cross_Period, InpEMA20Cross_Lookback,
+                                 InpEMA20Cross_StrongClose, InpEMA20Cross_PinWickRatio);
+         break;
    }
    if(!ok) return INIT_FAILED;
 
@@ -194,6 +277,8 @@ void OnDeinit(const int reason)
    atrStops.Deinit();
    sigEMA13.Deinit();
    sigEMA20.Deinit();
+   sigSMA.Deinit();
+   sigEMA20Cross.Deinit();
 }
 
 //+------------------------------------------------------------------+
@@ -245,10 +330,7 @@ void OnTick()
    double sl, tp;
    double entry = (dir == SIG_LONG) ? ask : bid;
 
-   bool ok = (dir == SIG_LONG)
-                ? atrStops.LongStops(entry, InpATR_SL_Mult, InpRR, sl, tp)
-                : atrStops.ShortStops(entry, InpATR_SL_Mult, InpRR, sl, tp);
-   if(!ok) return;
+   if(!ComputeStops(dir, entry, sl, tp)) return;
 
    double sl_dist = MathAbs(entry - sl);
    double lot = risk.LotForRisk(sl_dist);

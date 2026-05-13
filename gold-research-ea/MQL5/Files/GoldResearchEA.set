@@ -19,10 +19,24 @@ InpEMA20_HTF_Period=50
 
 InpDonchianPeriod=20
 
+InpSMA_Fast=5
+InpSMA_Slow=20
+
+InpEMA20Cross_Period=20
+InpEMA20Cross_Lookback=8
+InpEMA20Cross_StrongClose=0.7
+InpEMA20Cross_PinWickRatio=2.0
+
 InpRiskPercent=0.5
+InpStopMode=0
 InpATR_Period=14
 InpATR_SL_Mult=1.5
 InpRR=1.5
+InpPipSize=0.1
+InpSL_Pips=25.0
+InpTP_Pips=35.0
+InpPips_UseRR=false
+InpSwingLookback=20
 InpMaxDailyLossPct=3.0
 
 InpSessionFilter=true
