@@ -8,7 +8,7 @@
 //|  See docs/risk_disclaimer.md before any live use.                |
 //+------------------------------------------------------------------+
 #property copyright   "Gold Research EA (MIT)"
-#property version     "0.2"
+#property version     "0.3"
 #property description "XAUUSD research EA — EMA/SMA pullback + Donchian baseline"
 #property strict
 
@@ -82,6 +82,8 @@ input double InpTP_Pips          = 35.0;   // STOP_PIPS mode (ignored if InpRR>0
 input bool   InpPips_UseRR       = false;  // STOP_PIPS: derive TP from SL_Pips * RR
 input int    InpSwingLookback    = 20;     // STOP_SWING: bars to scan for swing H/L
 input double InpMaxDailyLossPct  = 3.0;    // daily DD circuit breaker
+input double InpMaxSpreadPips    = 5.0;    // skip entry if current spread > this (XAUUSD pips)
+input int    InpStopLevelPadPts  = 5;      // extra points beyond broker stop level
 
 input group "=== Session ==="
 input bool   InpSessionFilter    = true;
@@ -176,6 +178,40 @@ ENUM_SIGNAL_DIR DispatchSignal()
       case EMA20_M15_8BAR:  return sigEMA20Cross.CheckSignal();
    }
    return SIG_NONE;
+}
+
+//--- Current spread in pips (using configured InpPipSize).
+double CurrentSpreadPips()
+{
+   double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+   double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   if(ask <= 0 || bid <= 0 || InpPipSize <= 0) return 1e9;
+   return (ask - bid) / InpPipSize;
+}
+
+//--- Enforce broker minimum stop distance (SYMBOL_TRADE_STOPS_LEVEL) on SL/TP.
+//    Returns false if entry-side distance can't reach the broker requirement
+//    even after adjustment (the constraint conflicts with the trade direction).
+bool EnforceStopLevel(ENUM_SIGNAL_DIR dir, double entry, double &sl, double &tp)
+{
+   long stops_level_pts = SymbolInfoInteger(_Symbol, SYMBOL_TRADE_STOPS_LEVEL);
+   double point = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+   if(point <= 0) return false;
+   double min_dist = (stops_level_pts + InpStopLevelPadPts) * point;
+
+   if(dir == SIG_LONG)
+   {
+      if(entry - sl < min_dist) sl = entry - min_dist;
+      if(tp - entry < min_dist) tp = entry + min_dist;
+      return (sl < entry) && (tp > entry);
+   }
+   if(dir == SIG_SHORT)
+   {
+      if(sl - entry < min_dist) sl = entry + min_dist;
+      if(entry - tp < min_dist) tp = entry - min_dist;
+      return (sl > entry) && (tp < entry);
+   }
+   return false;
 }
 
 //--- Compute SL/TP using the selected stop mode. Returns false on failure.
@@ -324,6 +360,14 @@ void OnTick()
       if(bars_since >= 0 && bars_since < InpCooldownBars) return;
    }
 
+   // Spread filter: skip entry during widened-spread events (news, illiquid hours).
+   double spread_pips = CurrentSpreadPips();
+   if(spread_pips > InpMaxSpreadPips)
+   {
+      PrintFormat("[Skip] spread=%.2fpips > max=%.2f", spread_pips, InpMaxSpreadPips);
+      return;
+   }
+
    // Compute stops + lot.
    double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
    double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
@@ -331,6 +375,11 @@ void OnTick()
    double entry = (dir == SIG_LONG) ? ask : bid;
 
    if(!ComputeStops(dir, entry, sl, tp)) return;
+   if(!EnforceStopLevel(dir, entry, sl, tp))
+   {
+      PrintFormat("[Skip] stop level constraint not satisfiable");
+      return;
+   }
 
    double sl_dist = MathAbs(entry - sl);
    double lot = risk.LotForRisk(sl_dist);
@@ -350,8 +399,8 @@ void OnTick()
    {
       g_lastEntryBar = curBar;
       g_lastEntryDir = (int)dir;
-      PrintFormat("[Entry] dir=%d lot=%.2f entry=%.2f sl=%.2f tp=%.2f",
-                  (int)dir, lot, entry, sl, tp);
+      PrintFormat("[Entry] dir=%d lot=%.2f entry=%.2f sl=%.2f tp=%.2f spread=%.2fpips",
+                  (int)dir, lot, entry, sl, tp, spread_pips);
    }
    else
    {

@@ -1,0 +1,83 @@
+; ===================================================================
+; GoldResearchEA — FXGT XAUUSD / 10万円 (~$650) preset
+; ===================================================================
+; This .set targets:
+;   - Broker: FXGT (ECN account recommended; Standard+ acceptable)
+;   - Account currency: USD (preferred) or JPY
+;   - Initial deposit: ~$650 USD (10万円 at 155 yen/USD)
+;   - Default strategy: EMA13_PULLBACK (M5)
+;
+; IMPORTANT: 必ず FXGT デモ口座で1〜2週間動作確認してから実弾投入すること。
+;            ボーナス受け取り口座での運用は推奨しない (証拠金計算が乱れる)。
+;            金融庁未登録の海外業者であり投資者保護基金の対象外。
+;
+; To switch strategies, only change InpStrategy:
+;   0 = EMA13_PULLBACK (M5)        [recommended for 10万円]
+;   1 = EMA20_M10
+;   2 = DONCHIAN_BREAK             [NOT recommended for 10万円 — SL too wide]
+;   3 = SMA_CROSS_M15              [set InpStopMode=1 (STOP_PIPS)]
+;   4 = EMA20_M15_8BAR             [set InpStopMode=2 (STOP_SWING)]
+; -------------------------------------------------------------------
+
+; --- Strategy ---
+InpStrategy=0
+InpTimeframe=5
+
+; --- EMA13 pullback (default strategy) ---
+InpEMA13_Fast=13
+InpEMA13_Slow=100
+InpEMA13_SlopeBars=10
+
+; --- EMA20 pullback (M10) ---
+InpEMA20_Period=20
+InpEMA20_SlopeBars=5
+InpEMA20_UseHTF=false
+InpEMA20_HTF=16385
+InpEMA20_HTF_Period=50
+
+; --- Donchian baseline ---
+InpDonchianPeriod=20
+
+; --- SMA cross (M15) ---
+InpSMA_Fast=5
+InpSMA_Slow=20
+
+; --- EMA20 cross + 8-bar (M15) ---
+InpEMA20Cross_Period=20
+InpEMA20Cross_Lookback=8
+InpEMA20Cross_StrongClose=0.7
+InpEMA20Cross_PinWickRatio=2.0
+
+; --- Risk management (tuned for 10万円) ---
+InpRiskPercent=1.0
+; 0.5% だと 0.01 ロットに届かずスキップ多発。10万円規模では 1.0% が下限実用線。
+InpStopMode=0
+; 0=ATR (default), 1=PIPS, 2=SWING
+InpATR_Period=14
+InpATR_SL_Mult=1.2
+; 1.5 → 1.2 (タイト寄り、回転率優先)
+InpRR=1.5
+InpPipSize=0.1
+; FXGT XAUUSD: digits=2, 1pip = 0.1 USD (10 points)
+InpSL_Pips=25.0
+InpTP_Pips=35.0
+InpPips_UseRR=false
+InpSwingLookback=20
+InpMaxDailyLossPct=5.0
+; 3.0 → 5.0 (連敗時のEAアイドル日を減らす)
+InpMaxSpreadPips=5.0
+; 5pips = 0.5 USD = 50 cents。FXGT ECN なら平時 1-2pips、指標時 5pips超で停止
+InpStopLevelPadPts=5
+
+; --- Session ---
+InpSessionFilter=true
+InpSessionStartUTC=8
+InpSessionEndUTC=21
+InpFridayClose=true
+InpFridayCloseHourUTC=20
+
+; --- Misc ---
+InpCooldownBars=5
+; 3 → 5 (連敗連鎖防止)
+InpMagicNumber=20260513
+InpComment=GRE_FXGT_100k

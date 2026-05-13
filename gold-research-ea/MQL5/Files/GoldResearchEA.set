@@ -38,6 +38,8 @@ InpTP_Pips=35.0
 InpPips_UseRR=false
 InpSwingLookback=20
 InpMaxDailyLossPct=3.0
+InpMaxSpreadPips=5.0
+InpStopLevelPadPts=5
 
 InpSessionFilter=true
 InpSessionStartUTC=8

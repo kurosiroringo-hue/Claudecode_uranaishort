@@ -76,6 +76,16 @@ gold-research-ea/
 3. MetaEditor でコンパイル (F7)。エラー 0 を確認
 4. MT5 を再起動、`Navigator > Expert Advisors > GoldResearchEA` をチャートにドロップ
 
+### FXGT + 10万円で始める場合
+
+専用プリセット `MQL5/Files/GoldResearchEA_FXGT_100k.set` を用意。
+セットアップ手順は [`docs/fxgt_setup.md`](docs/fxgt_setup.md) を参照。
+
+## スプレッド/ストップレベル対策 (v0.3〜)
+
+- `InpMaxSpreadPips` (デフォルト 5.0 pips): 現在スプレッドがこれを超えるとエントリ抑制。指標発表時の異常スプレッドで掴まされるのを防ぐ
+- `InpStopLevelPadPts` (デフォルト 5 points): ブローカーの `SYMBOL_TRADE_STOPS_LEVEL` に追加マージンを乗せて発注。ストップ狩り耐性も若干向上
+
 ## 使い方 (バックテスト)
 
 1. `View > Strategy Tester` (Ctrl+R)
